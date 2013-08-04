@@ -41,4 +41,9 @@
     return  cell;
 }
 
+- (void)anotherDelegateMethod
+{
+    NSLog(@"smurphing");
+}
+
 @end

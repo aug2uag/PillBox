@@ -82,9 +82,28 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row != 2) {
-        NSLog(@"clicked");
+        
+        
+        switch (indexPath.row)
+        {
+            case 0:
+                NSLog(@"zero");
+                break;
+            case 1:
+                NSLog(@"one");
+                break;
+            case 3:
+                NSLog(@"three");
+                break;
+            case 4:
+                NSLog(@"four");
+                break;
+            case 5:
+                NSLog(@"five");
+                break;
+        }
+        
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

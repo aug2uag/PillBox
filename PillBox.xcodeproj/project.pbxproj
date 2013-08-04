@@ -33,6 +33,7 @@
 		3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF417AE1AC000985E0C /* UARoundedRectView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3465EEFD17AE1B0700985E0C /* CustomTableViewCell00.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */; };
 		3465EEFF17AE1D3300985E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEFE17AE1D3300985E0C /* QuartzCore.framework */; };
+		3465EF0217AE202E00985E0C /* ColorsModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EF0117AE202E00985E0C /* ColorsModalPanel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,9 @@
 		3465EEFB17AE1B0700985E0C /* CustomTableViewCell00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell00.h; sourceTree = "<group>"; };
 		3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell00.m; sourceTree = "<group>"; };
 		3465EEFE17AE1D3300985E0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3465EF0017AE202E00985E0C /* ColorsModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsModalPanel.h; sourceTree = "<group>"; };
+		3465EF0117AE202E00985E0C /* ColorsModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsModalPanel.m; sourceTree = "<group>"; };
+		3465EF0317AE212500985E0C /* AnotherPopupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherPopupDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,9 @@
 				3465EEDB17AE157100985E0C /* CustomCollectionViewCell.m */,
 				3465EEFB17AE1B0700985E0C /* CustomTableViewCell00.h */,
 				3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */,
+				3465EF0017AE202E00985E0C /* ColorsModalPanel.h */,
+				3465EF0117AE202E00985E0C /* ColorsModalPanel.m */,
+				3465EF0317AE212500985E0C /* AnotherPopupDelegate.h */,
 				3465EEBD17AE0CD700985E0C /* Supporting Files */,
 			);
 			path = PillBox;
@@ -260,6 +267,7 @@
 				3465EEF817AE1AC000985E0C /* UAGradientBackground.m in Sources */,
 				3465EEF917AE1AC000985E0C /* UANoisyGradientBackground.m in Sources */,
 				3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */,
+				3465EF0217AE202E00985E0C /* ColorsModalPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
