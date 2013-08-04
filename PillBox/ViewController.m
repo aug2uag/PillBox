@@ -7,9 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "CustomCollectionViewCell.h"
+#import "CustomTableViewCell00.h"
+#import "ColorsModalPanel.h"
 
 @interface ViewController ()
+{
+    NSArray* array;
+}
 
 @end
 
@@ -19,27 +23,106 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    array = @[@"color", @"dea schedule", @"has image?", @"active ingredient", @"shape of pill", @"size of pill"];
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+
+#pragma mark-table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return array.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CustomCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[CustomCollectionViewCell alloc] init];
+    
+    if (indexPath.row == 2) {
+        CustomTableViewCell00* cell = [tableView dequeueReusableCellWithIdentifier:@"customTableCell"];
+        
+        if (cell == nil) {
+            cell = [[CustomTableViewCell00 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"customTableCell"];
+        }
+        
+        NSString* string = [array objectAtIndex:indexPath.row];
+        
+        //set string to textLabel of cell
+        [cell.oLabel setText:string];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        
+        
+        
+        return cell;
     }
     
-    return  cell;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
+    }
+    
+    //declare string, assign to value at indexPath from array
+    //array may be made from [dictionary allKeys];
+    NSString* string = [array objectAtIndex:indexPath.row];
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //set string to textLabel of cell
+    [cell.textLabel setText:string];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    
+    return cell;
+    
+    
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != 2) {
+        
+        
+        switch (indexPath.row)
+        {
+            case 0:
+                NSLog(@"zero");
+            {
+                ColorsModalPanel *colorsPanel = [[ColorsModalPanel alloc] initWithFrame:self.view.bounds];
+                [self.view addSubview:colorsPanel];
+                [colorsPanel showFromPoint:self.view.center];
+            }
+                break;
+            case 1:
+                NSLog(@"one");
+                break;
+            case 3:
+                NSLog(@"three");
+                break;
+            case 4:
+                NSLog(@"four");
+                break;
+            case 5:
+                NSLog(@"five");
+                break;
+        }
+        
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != 2) {
+        return 54.0f;
+    }
+    return 44.0f;
+}
+
 
 - (void)anotherDelegateMethod
 {

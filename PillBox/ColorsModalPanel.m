@@ -57,11 +57,8 @@
         myTableView.dataSource = self;
         myTableView.delegate = self;
         
-        [[NSBundle mainBundle] loadNibNamed:@"TreatmentsView" owner:self options:nil];
+        [[NSBundle mainBundle] loadNibNamed:@"ColorsView" owner:self options:nil];
         
-        [scrollView addSubview:myTableView];
-        
-        [scrollView setContentSize:myTableView.bounds.size];
         [self.contentView addSubview:viewLoadedFromXib];
         
         

@@ -11,4 +11,6 @@
 
 @interface ViewController : UIViewController <AnotherPopupDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *oTableView;
+
 @end

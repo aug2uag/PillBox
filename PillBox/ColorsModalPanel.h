@@ -18,7 +18,6 @@
 	CGFloat						titleBarHeight;
 	UANoisyGradientBackground	*titleBar;
 	UILabel						*headerLabel;
-    __weak IBOutlet UIScrollView *scrollView;
 }
 
 // Height of the title view. Default = 40.0f

@@ -34,6 +34,7 @@
 		3465EEFD17AE1B0700985E0C /* CustomTableViewCell00.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */; };
 		3465EEFF17AE1D3300985E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEFE17AE1D3300985E0C /* QuartzCore.framework */; };
 		3465EF0217AE202E00985E0C /* ColorsModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EF0117AE202E00985E0C /* ColorsModalPanel.m */; };
+		3465EF0517AE25FE00985E0C /* ColorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3465EF0417AE25FE00985E0C /* ColorsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		3465EF0017AE202E00985E0C /* ColorsModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsModalPanel.h; sourceTree = "<group>"; };
 		3465EF0117AE202E00985E0C /* ColorsModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsModalPanel.m; sourceTree = "<group>"; };
 		3465EF0317AE212500985E0C /* AnotherPopupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherPopupDelegate.h; sourceTree = "<group>"; };
+		3465EF0417AE25FE00985E0C /* ColorsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */,
 				3465EF0017AE202E00985E0C /* ColorsModalPanel.h */,
 				3465EF0117AE202E00985E0C /* ColorsModalPanel.m */,
+				3465EF0417AE25FE00985E0C /* ColorsView.xib */,
 				3465EF0317AE212500985E0C /* AnotherPopupDelegate.h */,
 				3465EEBD17AE0CD700985E0C /* Supporting Files */,
 			);
@@ -246,6 +249,7 @@
 				3465EEE617AE1AA400985E0C /* modalButton-selected@2x.png in Resources */,
 				3465EEE717AE1AA400985E0C /* modalButton.png in Resources */,
 				3465EEE817AE1AA400985E0C /* modalButton@2x.png in Resources */,
+				3465EF0517AE25FE00985E0C /* ColorsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

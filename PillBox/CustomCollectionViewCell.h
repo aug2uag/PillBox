@@ -10,6 +10,6 @@
 
 @interface CustomCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UITableView *oTableView;
+
 
 @end
