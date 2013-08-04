@@ -15,6 +15,7 @@
 {
     NSArray* selections;
     UITableView *myTableView;
+    BOOL cellChecked;
 }
 
 @end
@@ -155,13 +156,19 @@
     
     //set string to textLabel of cell
     [cell.textLabel setText:string];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath   *)indexPath
 {
-    [self.popupDelegate anotherDelegateMethod];
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
 }
 
 @end

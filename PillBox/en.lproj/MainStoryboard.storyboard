@@ -15,8 +15,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frO-4W-ueb">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="297" id="4O2-OA-uJj"/>
-                                    <constraint firstAttribute="height" constant="303" id="j5g-ub-6F2"/>
+                                    <constraint firstAttribute="height" constant="303" id="QfS-UD-qh6"/>
+                                    <constraint firstAttribute="width" constant="297" id="cl2-DH-3sZ"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="customTableCell" id="Ccq-oZ-1rL" customClass="CustomTableViewCell00">
@@ -29,8 +29,8 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-3Y-O5H"/>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPo-Cu-pgw">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="CfM-3a-5fq"/>
-                                                        <constraint firstAttribute="width" constant="161" id="EZo-rR-MXh"/>
+                                                        <constraint firstAttribute="height" constant="43" id="Fy9-Yq-A54"/>
+                                                        <constraint firstAttribute="width" constant="161" id="Oa0-Ij-w1z"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -40,10 +40,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="nPo-Cu-pgw" firstAttribute="top" secondItem="Ccq-oZ-1rL" secondAttribute="top" type="default" id="G7H-9i-R93"/>
-                                            <constraint firstItem="nPo-Cu-pgw" firstAttribute="leading" secondItem="Ccq-oZ-1rL" secondAttribute="leading" constant="10" id="UFU-hP-lYD"/>
-                                            <constraint firstItem="bkM-3Y-O5H" firstAttribute="centerY" secondItem="nPo-Cu-pgw" secondAttribute="centerY" type="default" id="ZMh-3F-jtc"/>
-                                            <constraint firstAttribute="trailing" secondItem="bkM-3Y-O5H" secondAttribute="trailing" constant="7" id="cjS-84-5HF"/>
+                                            <constraint firstItem="nPo-Cu-pgw" firstAttribute="centerY" secondItem="bkM-3Y-O5H" secondAttribute="centerY" type="default" id="HQg-vn-WY8"/>
+                                            <constraint firstAttribute="trailing" secondItem="bkM-3Y-O5H" secondAttribute="trailing" constant="7" id="KRr-OT-fyn"/>
+                                            <constraint firstItem="nPo-Cu-pgw" firstAttribute="leading" secondItem="Ccq-oZ-1rL" secondAttribute="leading" constant="10" id="jaY-6m-DbA"/>
+                                            <constraint firstItem="nPo-Cu-pgw" firstAttribute="top" secondItem="Ccq-oZ-1rL" secondAttribute="top" type="default" id="kEh-aV-3jJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="oBoolSwitch" destination="bkM-3Y-O5H" id="rWe-l4-qL6"/>
@@ -59,8 +59,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="frO-4W-ueb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="11" id="08x-fW-l5t"/>
-                            <constraint firstItem="frO-4W-ueb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="uDT-Nf-af7"/>
+                            <constraint firstItem="frO-4W-ueb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="pdo-Yt-jvF"/>
+                            <constraint firstItem="frO-4W-ueb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="11" id="suw-2S-EoI"/>
                         </constraints>
                     </view>
                     <connections>

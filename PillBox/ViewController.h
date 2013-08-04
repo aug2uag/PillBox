@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AnotherPopupDelegate.h"
+#import "ColorsModalPanel.h"
 
-@interface ViewController : UIViewController <AnotherPopupDelegate>
+@interface ViewController : UIViewController <AnotherPopupDelegate, UAModalPanelDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *oTableView;
 

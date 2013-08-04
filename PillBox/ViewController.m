@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "CustomTableViewCell00.h"
-#import "ColorsModalPanel.h"
 
 @interface ViewController ()
 {
@@ -94,6 +93,7 @@
                 NSLog(@"zero");
             {
                 ColorsModalPanel *colorsPanel = [[ColorsModalPanel alloc] initWithFrame:self.view.bounds];
+                colorsPanel.delegate = (id)self;
                 [self.view addSubview:colorsPanel];
                 [colorsPanel showFromPoint:self.view.center];
             }
@@ -127,6 +127,10 @@
 - (void)anotherDelegateMethod
 {
     NSLog(@"smurphing");
+}
+
+- (void)willCloseModalPanel:(UAModalPanel *)modalPanel {
+	NSLog(@"CLOSED IN VC");
 }
 
 @end
