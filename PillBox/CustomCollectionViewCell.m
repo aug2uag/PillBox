@@ -7,6 +7,7 @@
 //
 
 #import "CustomCollectionViewCell.h"
+#import "CustomTableViewCell00.h"
 
 @interface CustomCollectionViewCell ()
 {
@@ -37,12 +38,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (indexPath.row == 2) {
+        CustomTableViewCell00* cell = [tableView dequeueReusableCellWithIdentifier:@"customTableCell"];
+        
+        if (cell == nil) {
+            cell = [[CustomTableViewCell00 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"customTableCell"];
+        }
+        
+        NSString* string = [array objectAtIndex:indexPath.row];
+        
+        //set string to textLabel of cell
+        [cell.oLabel setText:string];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        
+        
+        
+        return cell;
+    }
+    
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
     }
-    
     
     //declare string, assign to value at indexPath from array
     //array may be made from [dictionary allKeys];
@@ -54,11 +75,24 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     return cell;
+    
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"clicked");
+    if (indexPath.row != 2) {
+        NSLog(@"clicked");
+    }
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != 2) {
+        return 54.0f;
+    }
+    return 44.0f;
 }
 
 

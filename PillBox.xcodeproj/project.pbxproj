@@ -19,6 +19,20 @@
 		3465EED017AE0CD800985E0C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3465EECE17AE0CD800985E0C /* MainStoryboard.storyboard */; };
 		3465EED317AE0CD800985E0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EED217AE0CD800985E0C /* ViewController.m */; };
 		3465EEDC17AE157100985E0C /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEDB17AE157100985E0C /* CustomCollectionViewCell.m */; };
+		3465EEE317AE1AA400985E0C /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3465EEDD17AE1AA400985E0C /* close.png */; };
+		3465EEE417AE1AA400985E0C /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3465EEDE17AE1AA400985E0C /* close@2x.png */; };
+		3465EEE517AE1AA400985E0C /* modalButton-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3465EEDF17AE1AA400985E0C /* modalButton-selected.png */; };
+		3465EEE617AE1AA400985E0C /* modalButton-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3465EEE017AE1AA400985E0C /* modalButton-selected@2x.png */; };
+		3465EEE717AE1AA400985E0C /* modalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3465EEE117AE1AA400985E0C /* modalButton.png */; };
+		3465EEE817AE1AA400985E0C /* modalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3465EEE217AE1AA400985E0C /* modalButton@2x.png */; };
+		3465EEF517AE1AC000985E0C /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEEA17AE1AC000985E0C /* UIView+JMNoise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3465EEF617AE1AC000985E0C /* UAModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEEC17AE1AC000985E0C /* UAModalPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3465EEF717AE1AC000985E0C /* UATitledModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEEE17AE1AC000985E0C /* UATitledModalPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3465EEF817AE1AC000985E0C /* UAGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF017AE1AC000985E0C /* UAGradientBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3465EEF917AE1AC000985E0C /* UANoisyGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF217AE1AC000985E0C /* UANoisyGradientBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF417AE1AC000985E0C /* UARoundedRectView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3465EEFD17AE1B0700985E0C /* CustomTableViewCell00.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */; };
+		3465EEFF17AE1D3300985E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEFE17AE1D3300985E0C /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +54,27 @@
 		3465EED217AE0CD800985E0C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3465EEDA17AE157100985E0C /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		3465EEDB17AE157100985E0C /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		3465EEDD17AE1AA400985E0C /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		3465EEDE17AE1AA400985E0C /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		3465EEDF17AE1AA400985E0C /* modalButton-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modalButton-selected.png"; sourceTree = "<group>"; };
+		3465EEE017AE1AA400985E0C /* modalButton-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modalButton-selected@2x.png"; sourceTree = "<group>"; };
+		3465EEE117AE1AA400985E0C /* modalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modalButton.png; sourceTree = "<group>"; };
+		3465EEE217AE1AA400985E0C /* modalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "modalButton@2x.png"; sourceTree = "<group>"; };
+		3465EEE917AE1AC000985E0C /* UIView+JMNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JMNoise.h"; sourceTree = "<group>"; };
+		3465EEEA17AE1AC000985E0C /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
+		3465EEEB17AE1AC000985E0C /* UAModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAModalPanel.h; sourceTree = "<group>"; };
+		3465EEEC17AE1AC000985E0C /* UAModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAModalPanel.m; sourceTree = "<group>"; };
+		3465EEED17AE1AC000985E0C /* UATitledModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATitledModalPanel.h; sourceTree = "<group>"; };
+		3465EEEE17AE1AC000985E0C /* UATitledModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATitledModalPanel.m; sourceTree = "<group>"; };
+		3465EEEF17AE1AC000985E0C /* UAGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGradientBackground.h; sourceTree = "<group>"; };
+		3465EEF017AE1AC000985E0C /* UAGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGradientBackground.m; sourceTree = "<group>"; };
+		3465EEF117AE1AC000985E0C /* UANoisyGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UANoisyGradientBackground.h; sourceTree = "<group>"; };
+		3465EEF217AE1AC000985E0C /* UANoisyGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UANoisyGradientBackground.m; sourceTree = "<group>"; };
+		3465EEF317AE1AC000985E0C /* UARoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARoundedRectView.h; sourceTree = "<group>"; };
+		3465EEF417AE1AC000985E0C /* UARoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARoundedRectView.m; sourceTree = "<group>"; };
+		3465EEFB17AE1B0700985E0C /* CustomTableViewCell00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell00.h; sourceTree = "<group>"; };
+		3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell00.m; sourceTree = "<group>"; };
+		3465EEFE17AE1D3300985E0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3465EEFF17AE1D3300985E0C /* QuartzCore.framework in Frameworks */,
 				3465EEB717AE0CD700985E0C /* UIKit.framework in Frameworks */,
 				3465EEB917AE0CD700985E0C /* Foundation.framework in Frameworks */,
 				3465EEBB17AE0CD700985E0C /* CoreGraphics.framework in Frameworks */,
@@ -59,6 +95,7 @@
 		3465EEAA17AE0CD700985E0C = {
 			isa = PBXGroup;
 			children = (
+				3465EEFE17AE1D3300985E0C /* QuartzCore.framework */,
 				3465EEBC17AE0CD700985E0C /* PillBox */,
 				3465EEB517AE0CD700985E0C /* Frameworks */,
 				3465EEB417AE0CD700985E0C /* Products */,
@@ -94,6 +131,8 @@
 				3465EED217AE0CD800985E0C /* ViewController.m */,
 				3465EEDA17AE157100985E0C /* CustomCollectionViewCell.h */,
 				3465EEDB17AE157100985E0C /* CustomCollectionViewCell.m */,
+				3465EEFB17AE1B0700985E0C /* CustomTableViewCell00.h */,
+				3465EEFC17AE1B0700985E0C /* CustomTableViewCell00.m */,
 				3465EEBD17AE0CD700985E0C /* Supporting Files */,
 			);
 			path = PillBox;
@@ -109,6 +148,12 @@
 				3465EEC817AE0CD800985E0C /* Default.png */,
 				3465EECA17AE0CD800985E0C /* Default@2x.png */,
 				3465EECC17AE0CD800985E0C /* Default-568h@2x.png */,
+				3465EEDD17AE1AA400985E0C /* close.png */,
+				3465EEDE17AE1AA400985E0C /* close@2x.png */,
+				3465EEDF17AE1AA400985E0C /* modalButton-selected.png */,
+				3465EEE017AE1AA400985E0C /* modalButton-selected@2x.png */,
+				3465EEE117AE1AA400985E0C /* modalButton.png */,
+				3465EEE217AE1AA400985E0C /* modalButton@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -116,6 +161,18 @@
 		3465EED917AE154A00985E0C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				3465EEE917AE1AC000985E0C /* UIView+JMNoise.h */,
+				3465EEEA17AE1AC000985E0C /* UIView+JMNoise.m */,
+				3465EEEB17AE1AC000985E0C /* UAModalPanel.h */,
+				3465EEEC17AE1AC000985E0C /* UAModalPanel.m */,
+				3465EEED17AE1AC000985E0C /* UATitledModalPanel.h */,
+				3465EEEE17AE1AC000985E0C /* UATitledModalPanel.m */,
+				3465EEEF17AE1AC000985E0C /* UAGradientBackground.h */,
+				3465EEF017AE1AC000985E0C /* UAGradientBackground.m */,
+				3465EEF117AE1AC000985E0C /* UANoisyGradientBackground.h */,
+				3465EEF217AE1AC000985E0C /* UANoisyGradientBackground.m */,
+				3465EEF317AE1AC000985E0C /* UARoundedRectView.h */,
+				3465EEF417AE1AC000985E0C /* UARoundedRectView.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -176,6 +233,12 @@
 				3465EECB17AE0CD800985E0C /* Default@2x.png in Resources */,
 				3465EECD17AE0CD800985E0C /* Default-568h@2x.png in Resources */,
 				3465EED017AE0CD800985E0C /* MainStoryboard.storyboard in Resources */,
+				3465EEE317AE1AA400985E0C /* close.png in Resources */,
+				3465EEE417AE1AA400985E0C /* close@2x.png in Resources */,
+				3465EEE517AE1AA400985E0C /* modalButton-selected.png in Resources */,
+				3465EEE617AE1AA400985E0C /* modalButton-selected@2x.png in Resources */,
+				3465EEE717AE1AA400985E0C /* modalButton.png in Resources */,
+				3465EEE817AE1AA400985E0C /* modalButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +253,13 @@
 				3465EEC717AE0CD700985E0C /* AppDelegate.m in Sources */,
 				3465EED317AE0CD800985E0C /* ViewController.m in Sources */,
 				3465EEDC17AE157100985E0C /* CustomCollectionViewCell.m in Sources */,
+				3465EEFD17AE1B0700985E0C /* CustomTableViewCell00.m in Sources */,
+				3465EEF517AE1AC000985E0C /* UIView+JMNoise.m in Sources */,
+				3465EEF617AE1AC000985E0C /* UAModalPanel.m in Sources */,
+				3465EEF717AE1AC000985E0C /* UATitledModalPanel.m in Sources */,
+				3465EEF817AE1AC000985E0C /* UAGradientBackground.m in Sources */,
+				3465EEF917AE1AC000985E0C /* UANoisyGradientBackground.m in Sources */,
+				3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
