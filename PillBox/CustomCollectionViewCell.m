@@ -17,13 +17,10 @@
 
 @implementation CustomCollectionViewCell
 
-- (id)initWithFrame:(CGRect)frame
+- (void)layoutSubviews
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        array = @[@"color", @"dea schedule", @"has image?", @"active ingredient", @"shape of pill", @"size of pill"];
-    }
-    return self;
+    NSLog(@"hey hey");
+    array = @[@"color", @"dea schedule", @"has image?", @"active ingredient", @"shape of pill", @"size of pill"];
 }
 
 #pragma mark-table view data source
@@ -52,7 +49,7 @@
     //array may be made from [dictionary allKeys];
     NSString* string = [array objectAtIndex:indexPath.row];
     
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //set string to textLabel of cell
     [cell.textLabel setText:string];
     

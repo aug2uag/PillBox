@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CustomCollectionViewCell.h"
 
 @interface ViewController ()
 
@@ -20,10 +21,24 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[CustomCollectionViewCell alloc] init];
+    }
+    
+    return  cell;
 }
 
 @end
