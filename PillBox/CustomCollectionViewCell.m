@@ -19,7 +19,6 @@
 
 - (void)layoutSubviews
 {
-    NSLog(@"hey hey");
     array = @[@"color", @"dea schedule", @"has image?", @"active ingredient", @"shape of pill", @"size of pill"];
 }
 
@@ -52,8 +51,14 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //set string to textLabel of cell
     [cell.textLabel setText:string];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"clicked");
 }
 
 
