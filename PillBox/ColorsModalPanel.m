@@ -69,7 +69,6 @@
 }
 
 
-
 - (CGRect)titleBarFrame {
 	CGRect frame = [self.roundedRect bounds];
 	return CGRectMake(frame.origin.x,

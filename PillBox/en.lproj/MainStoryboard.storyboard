@@ -15,7 +15,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frO-4W-ueb">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="303" id="QfS-UD-qh6"/>
+                                    <constraint firstAttribute="height" constant="458" id="Py8-C4-lVS"/>
                                     <constraint firstAttribute="width" constant="297" id="cl2-DH-3sZ"/>
                                 </constraints>
                                 <prototypes>
@@ -59,7 +59,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="frO-4W-ueb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="pdo-Yt-jvF"/>
+                            <constraint firstItem="frO-4W-ueb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gq9-HU-kLE"/>
                             <constraint firstItem="frO-4W-ueb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="11" id="suw-2S-EoI"/>
                         </constraints>
                     </view>
@@ -72,6 +72,24 @@
             <point key="canvasLocation" x="-606" y="-73"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CustomTableViewCell00" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomTableViewCell00.h"/>
+            <relationships>
+                <relationship kind="outlet" name="oBoolSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="oLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="oTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

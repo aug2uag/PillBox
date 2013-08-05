@@ -22,20 +22,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    array = @[@"color", @"dea schedule", @"has image?", @"active ingredient", @"shape of pill", @"size of pill"];
+    array = @[@[@"Manufacturer", @"Name/Active ingredient", @"Inactive ingredient"], @[@"Color", @"Shape", @"Size"]];
 }
 
 
 #pragma mark-table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return array.count;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return array.count;
+    return [array[section] count];
 }
 
 
@@ -49,7 +49,7 @@
             cell = [[CustomTableViewCell00 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"customTableCell"];
         }
         
-        NSString* string = [array objectAtIndex:indexPath.row];
+        NSString* string = array[indexPath.section][indexPath.row];
         
         //set string to textLabel of cell
         [cell.oLabel setText:string];
@@ -70,7 +70,7 @@
     
     //declare string, assign to value at indexPath from array
     //array may be made from [dictionary allKeys];
-    NSString* string = [array objectAtIndex:indexPath.row];
+    NSString* string = array[indexPath.section][indexPath.row];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //set string to textLabel of cell
@@ -123,6 +123,14 @@
     return 44.0f;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Label";
+    } else {
+        return @"Physical attributes";
+    }
+}
 
 - (void)anotherDelegateMethod
 {
