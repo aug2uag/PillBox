@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "PBPopupDelegate.h"
 #import "PBColorsModalPanel.h"
+#import "PBSizeModalPanel.h"
+#import "PBShapeModalPanel.h"
 
 @interface PBViewController : UIViewController <PBPopupDelegate, UAModalPanelDelegate>
 

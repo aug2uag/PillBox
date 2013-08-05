@@ -10,8 +10,10 @@
 
 @interface PBViewController ()
 {
-    NSArray* pbArray;
-    PBColorsModalPanel *pbColorPanel;
+    NSArray*            pbArray;
+    PBColorsModalPanel* pbColorPanel;
+    PBSizeModalPanel*   pbSizePanel;
+    PBShapeModalPanel*  pbShapePanel;
 }
 
 @end
@@ -70,6 +72,24 @@
         [self.view addSubview:pbColorPanel];
         [pbColorPanel showFromPoint:self.view.center];
     }
+    
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        pbShapePanel = [[PBShapeModalPanel alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.frame.size.width, self.view.bounds.size.width)];
+        pbShapePanel.delegate = (id)self;
+        pbShapePanel.popupDelegate = (id)self;
+        [self.view addSubview:pbShapePanel];
+        [pbShapePanel showFromPoint:self.view.center];
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 2) {
+        pbSizePanel = [[PBSizeModalPanel alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.frame.size.width, self.view.bounds.size.width)];
+        pbSizePanel.delegate = (id)self;
+        pbSizePanel.popupDelegate = (id)self;
+        [self.view addSubview:pbSizePanel];
+        [pbSizePanel showFromPoint:self.view.center];
+    }
+    
+    
     
 }
 

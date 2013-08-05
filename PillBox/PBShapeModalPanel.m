@@ -1,21 +1,17 @@
 //
-//  ColorsModalPanel.m
+//  PBShapeModalPanel.m
 //  PillBox
 //
-//  Created by Reza Fatahi on 8/3/13.
+//  Created by Reza Fatahi on 8/4/13.
 //  Copyright (c) 2013 Rex Fatahi. All rights reserved.
 //
 
-#import "PBColorsModalPanel.h"
+#import "PBShapeModalPanel.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
-@interface PBColorsModalPanel ()
-
-@end
-
-@implementation PBColorsModalPanel
+@implementation PBShapeModalPanel
 
 @synthesize titleBarHeight, titleBar, headerLabel, viewLoadedFromXib, pbSelections, pbPickerView;
 
@@ -23,7 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        pbSelections = [[NSArray alloc] initWithObjects:@"BLACK", @"BLUE", @"BROWN", @"GRAY", @"GREEN", @"ORANGE", @"PINK",@"PURPLE", @"RED", @"TURQUOISE", @"WHITE", @"YELLOW", @"NONE", nil];
+        pbSelections = [[NSArray alloc] initWithObjects:@"BULLET", @"CAPSULE", @"CLOVER", @"DIAMOND", @"DOUBLE CIRCLE", @"FREEFORM", @"GEAR",@"HEPTAGON", @"HEXAGON", @"OCTAGON", @"OVAL", @"PENTAGON", @"RECTANGLE", @"ROUND", @"SEMI-CIRCLE", @"SQUARE", @"TEAR", @"TRAPEZOID", @"TRIANGLE", nil];
         
 		self.titleBarHeight = DEFAULT_TITLE_BAR_HEIGHT;
 		
@@ -47,7 +43,7 @@
 		[self.titleBar addSubview:self.headerLabel];
         
 		[self.titleBar setColorComponents:colors];
-        self.headerLabel.text = @"CHOOSE PILL COLOR";
+        self.headerLabel.text = @"CHOOSE PILL SHAPE";
         
         pbPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
         pbPickerView.dataSource = (id)self;

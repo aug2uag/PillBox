@@ -32,7 +32,11 @@
 		3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF417AE1AC000985E0C /* UARoundedRectView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3465EEFF17AE1D3300985E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEFE17AE1D3300985E0C /* QuartzCore.framework */; };
 		3465EF0217AE202E00985E0C /* PBColorsModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */; };
-		3465EF0517AE25FE00985E0C /* PBPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3465EF0417AE25FE00985E0C /* PBPickerView.xib */; };
+		3465EF0517AE25FE00985E0C /* PBColorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3465EF0417AE25FE00985E0C /* PBColorsView.xib */; };
+		3492BB3017AF4A9500A4A7B6 /* PBSizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB2F17AF4A9500A4A7B6 /* PBSizeView.xib */; };
+		3492BB3217AF4A9E00A4A7B6 /* PBShapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3117AF4A9D00A4A7B6 /* PBShapeView.xib */; };
+		3492BB3517AF4AC900A4A7B6 /* PBSizeModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */; };
+		3492BB3817AF4AD800A4A7B6 /* PBShapeModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +77,14 @@
 		3465EEFE17AE1D3300985E0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3465EF0017AE202E00985E0C /* PBColorsModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBColorsModalPanel.h; sourceTree = "<group>"; };
 		3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBColorsModalPanel.m; sourceTree = "<group>"; };
-		3465EF0417AE25FE00985E0C /* PBPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBPickerView.xib; sourceTree = "<group>"; };
+		3465EF0417AE25FE00985E0C /* PBColorsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBColorsView.xib; sourceTree = "<group>"; };
 		3492BB2617AF461F00A4A7B6 /* PBPopupDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBPopupDelegate.h; sourceTree = "<group>"; };
+		3492BB2F17AF4A9500A4A7B6 /* PBSizeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBSizeView.xib; sourceTree = "<group>"; };
+		3492BB3117AF4A9D00A4A7B6 /* PBShapeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBShapeView.xib; sourceTree = "<group>"; };
+		3492BB3317AF4AC900A4A7B6 /* PBSizeModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSizeModalPanel.h; sourceTree = "<group>"; };
+		3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSizeModalPanel.m; sourceTree = "<group>"; };
+		3492BB3617AF4AD800A4A7B6 /* PBShapeModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBShapeModalPanel.h; sourceTree = "<group>"; };
+		3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBShapeModalPanel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +190,13 @@
 				3492BB2617AF461F00A4A7B6 /* PBPopupDelegate.h */,
 				3465EF0017AE202E00985E0C /* PBColorsModalPanel.h */,
 				3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */,
-				3465EF0417AE25FE00985E0C /* PBPickerView.xib */,
+				3492BB3317AF4AC900A4A7B6 /* PBSizeModalPanel.h */,
+				3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */,
+				3492BB3617AF4AD800A4A7B6 /* PBShapeModalPanel.h */,
+				3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */,
+				3465EF0417AE25FE00985E0C /* PBColorsView.xib */,
+				3492BB2F17AF4A9500A4A7B6 /* PBSizeView.xib */,
+				3492BB3117AF4A9D00A4A7B6 /* PBShapeView.xib */,
 			);
 			name = "PBModal Panels";
 			sourceTree = "<group>";
@@ -247,7 +263,9 @@
 				3465EEE617AE1AA400985E0C /* modalButton-selected@2x.png in Resources */,
 				3465EEE717AE1AA400985E0C /* modalButton.png in Resources */,
 				3465EEE817AE1AA400985E0C /* modalButton@2x.png in Resources */,
-				3465EF0517AE25FE00985E0C /* PBPickerView.xib in Resources */,
+				3465EF0517AE25FE00985E0C /* PBColorsView.xib in Resources */,
+				3492BB3017AF4A9500A4A7B6 /* PBSizeView.xib in Resources */,
+				3492BB3217AF4A9E00A4A7B6 /* PBShapeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +286,8 @@
 				3465EEF917AE1AC000985E0C /* UANoisyGradientBackground.m in Sources */,
 				3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */,
 				3465EF0217AE202E00985E0C /* PBColorsModalPanel.m in Sources */,
+				3492BB3517AF4AC900A4A7B6 /* PBSizeModalPanel.m in Sources */,
+				3492BB3817AF4AD800A4A7B6 /* PBShapeModalPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

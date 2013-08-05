@@ -1,8 +1,8 @@
 //
-//  ColorsModalPanel.h
+//  PBSizeModalPanel.h
 //  PillBox
 //
-//  Created by Reza Fatahi on 8/3/13.
+//  Created by Reza Fatahi on 8/4/13.
 //  Copyright (c) 2013 Rex Fatahi. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 #import "UANoisyGradientBackground.h"
 #import "PBPopupDelegate.h"
 
-@interface PBColorsModalPanel : UAModalPanel
+@interface PBSizeModalPanel : UAModalPanel
 {
     IBOutlet UIView*            viewLoadedFromXib;
 	CGFloat						titleBarHeight;
@@ -31,3 +31,4 @@
 - (CGRect)titleBarFrame;
 
 @end
+
