@@ -12,6 +12,7 @@
 @interface ViewController ()
 {
     NSArray* array;
+    ColorsModalPanel *colorsPanel;
 }
 
 @end
@@ -92,8 +93,9 @@
             case 0:
                 NSLog(@"zero");
             {
-                ColorsModalPanel *colorsPanel = [[ColorsModalPanel alloc] initWithFrame:self.view.bounds];
+                colorsPanel = [[ColorsModalPanel alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.frame.size.width, self.view.bounds.size.width)];
                 colorsPanel.delegate = (id)self;
+                colorsPanel.popupDelegate = (id)self;
                 [self.view addSubview:colorsPanel];
                 [colorsPanel showFromPoint:self.view.center];
             }
@@ -132,13 +134,23 @@
     }
 }
 
-- (void)anotherDelegateMethod
+- (void)sendStringFromModalView:(NSString *)theString andModalPanel:(UAModalPanel *)theModalPanel
 {
-    NSLog(@"smurphing");
+    NSLog(@"the string => %@", theString);
+    
+    if (theModalPanel == colorsPanel) {
+        
+        NSLog(@"the string in if statement => %@", theString);
+        
+        [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel.text = theString;
+    }
 }
 
 - (void)willCloseModalPanel:(UAModalPanel *)modalPanel {
 	NSLog(@"CLOSED IN VC");
+    if (modalPanel == colorsPanel) {
+        //code
+    }
 }
 
 @end

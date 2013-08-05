@@ -12,12 +12,12 @@
 #import "AnotherPopupDelegate.h"
 
 @interface ColorsModalPanel : UAModalPanel
-<UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UIView             *viewLoadedFromXib;
 	CGFloat						titleBarHeight;
 	UANoisyGradientBackground	*titleBar;
 	UILabel						*headerLabel;
+    NSInteger                   *pickerViewRow;
 }
 
 // Height of the title view. Default = 40.0f

@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UAModalPanel.h"
 
 @protocol AnotherPopupDelegate <NSObject>
 
-- (void)anotherDelegateMethod;
+- (void)sendStringFromModalView:(NSString *)theString andModalPanel:(UAModalPanel *)theModalPanel;
 
 @end

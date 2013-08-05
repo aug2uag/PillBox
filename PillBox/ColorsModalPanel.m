@@ -13,8 +13,8 @@
 
 @interface ColorsModalPanel ()
 {
-    NSArray* selections;
-    UITableView *myTableView;
+    NSArray* pbSelections;
+    UIPickerView* pbPickerView;
     BOOL cellChecked;
 }
 
@@ -28,7 +28,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        selections = [[NSArray alloc] initWithObjects:@"BLACK", @"BLUE", @"BROWN", @"GRAY", @"GREEN", @"ORANGE", @"PINK",@"PURPLE", @"RED", @"TURQUOISE", @"WHITE", @"YELLOW", nil];
+        pbSelections = [[NSArray alloc] initWithObjects:@"BLACK", @"BLUE", @"BROWN", @"GRAY", @"GREEN", @"ORANGE", @"PINK",@"PURPLE", @"RED", @"TURQUOISE", @"WHITE", @"YELLOW", @"NONE", nil];
         
 		self.titleBarHeight = DEFAULT_TITLE_BAR_HEIGHT;
 		
@@ -54,9 +54,9 @@
 		[self.titleBar setColorComponents:colors];
         self.headerLabel.text = @"CHOOSE PILL COLOR";
         
-        myTableView = [[UITableView alloc] initWithFrame:CGRectZero];
-        myTableView.dataSource = self;
-        myTableView.delegate = self;
+        pbPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+        pbPickerView.dataSource = (id)self;
+        pbPickerView.delegate = (id)self;
         
         [[NSBundle mainBundle] loadNibNamed:@"ColorsView" owner:self options:nil];
         
@@ -121,53 +121,31 @@
 	self.headerLabel.frame = self.titleBar.bounds;
 	
 	[viewLoadedFromXib setFrame:self.contentView.bounds];
-    
-    [myTableView flashScrollIndicators];
 }
 
 
-#pragma mark-table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark-picker view data source and delegate
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return selections.count;
+    return pbSelections.count;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
-    }
-    
-    
-    //declare string, assign to value at indexPath from array
-    //array may be made from [dictionary allKeys];
-    NSString* string = [selections objectAtIndex:indexPath.row];
-    
-    
-    //set string to textLabel of cell
-    [cell.textLabel setText:string];
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    
-    return cell;
+    NSString* displayString = pbSelections[row];
+    return displayString;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath   *)indexPath
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    NSLog(@"in did select row");
+    [self.popupDelegate sendStringFromModalView:[NSString stringWithFormat:@"%@", pbSelections[row]] andModalPanel:self];
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
-}
 
 @end
