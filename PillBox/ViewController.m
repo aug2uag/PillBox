@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CustomTableViewCell00.h"
+#import "CustomTableViewCell01.h"
 
 @interface ViewController ()
 {
@@ -43,11 +44,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.row == 2) {
+    if (indexPath.section == 0 && indexPath.row == 2) {
         CustomTableViewCell00* cell = [tableView dequeueReusableCellWithIdentifier:@"customTableCell"];
         
         if (cell == nil) {
             cell = [[CustomTableViewCell00 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"customTableCell"];
+        }
+        
+        if (indexPath.section == 1) {
+            CustomTableViewCell01* cell = [tableView dequeueReusableCellWithIdentifier:@"customTableCell01"];
+            
+            if (cell == nil) {
+                cell = [[CustomTableViewCell01 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"customTableCell01"];
+            }
+            
+            //cell.oLabel01.hidden = YES;
         }
         
         NSString* string = array[indexPath.section][indexPath.row];
@@ -119,10 +130,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row != 2) {
-        return 54.0f;
-    }
-    return 44.0f;
+    return 54.0f;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -134,15 +142,21 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30.0f;
+}
+
 - (void)sendStringFromModalView:(NSString *)theString andModalPanel:(UAModalPanel *)theModalPanel
 {
-    NSLog(@"the string => %@", theString);
+
     
     if (theModalPanel == colorsPanel) {
         
-        NSLog(@"the string in if statement => %@", theString);
+        NSString* displayString = [NSString stringWithFormat:@"Color is: %@", theString];
         
-        [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel.text = theString;
+        [[self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel setText:displayString];
+        
     }
 }
 

@@ -12,18 +12,17 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frO-4W-ueb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frO-4W-ueb">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="458" id="Py8-C4-lVS"/>
-                                    <constraint firstAttribute="width" constant="297" id="cl2-DH-3sZ"/>
+                                    <constraint firstAttribute="height" constant="384" id="gSg-ZG-c3E"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="customTableCell" id="Ccq-oZ-1rL" customClass="CustomTableViewCell00">
-                                        <rect key="frame" x="0.0" y="22" width="297" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="297" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-3Y-O5H"/>
@@ -41,7 +40,7 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="nPo-Cu-pgw" firstAttribute="centerY" secondItem="bkM-3Y-O5H" secondAttribute="centerY" type="default" id="HQg-vn-WY8"/>
-                                            <constraint firstAttribute="trailing" secondItem="bkM-3Y-O5H" secondAttribute="trailing" constant="7" id="KRr-OT-fyn"/>
+                                            <constraint firstAttribute="trailing" secondItem="bkM-3Y-O5H" secondAttribute="trailing" constant="30" id="POb-EH-FFS"/>
                                             <constraint firstItem="nPo-Cu-pgw" firstAttribute="leading" secondItem="Ccq-oZ-1rL" secondAttribute="leading" constant="10" id="jaY-6m-DbA"/>
                                             <constraint firstItem="nPo-Cu-pgw" firstAttribute="top" secondItem="Ccq-oZ-1rL" secondAttribute="top" type="default" id="kEh-aV-3jJ"/>
                                         </constraints>
@@ -50,17 +49,55 @@
                                             <outlet property="oLabel" destination="nPo-Cu-pgw" id="VDT-Kj-QJw"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="customTableCell01" id="btT-Qr-qmY" customClass="CustomTableViewCell01">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Do4-b5-4ES">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" id="KHb-Hb-Vnr"/>
+                                                        <constraint firstAttribute="width" constant="121" id="U3W-8Q-qZq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Do4-b5-4ES" firstAttribute="leading" secondItem="btT-Qr-qmY" secondAttribute="leading" constant="114" id="DJL-pa-nMC"/>
+                                            <constraint firstItem="Do4-b5-4ES" firstAttribute="centerY" secondItem="btT-Qr-qmY" secondAttribute="centerY" type="default" id="EWw-Ea-ByN"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="oLabel01" destination="Do4-b5-4ES" id="cEi-K1-t5H"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="2" id="x87-nr-dPb"/>
                                     <outlet property="delegate" destination="2" id="EPa-TM-cod"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yW9-iJ-Bok">
+                                <items>
+                                    <navigationItem title="PillBox" id="N7j-Fk-Lff">
+                                        <barButtonItem key="rightBarButtonItem" title="Search!" id="L0c-Da-DtS"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="frO-4W-ueb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gq9-HU-kLE"/>
-                            <constraint firstItem="frO-4W-ueb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="11" id="suw-2S-EoI"/>
+                            <constraint firstItem="yW9-iJ-Bok" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Hlh-0e-pai"/>
+                            <constraint firstItem="frO-4W-ueb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="74" id="Ta9-LG-h5I"/>
+                            <constraint firstItem="frO-4W-ueb" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Wwg-cY-fTv"/>
+                            <constraint firstItem="frO-4W-ueb" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Zir-rc-4Ko"/>
+                            <constraint firstItem="yW9-iJ-Bok" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="bz1-Po-RzN"/>
+                            <constraint firstItem="yW9-iJ-Bok" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="ljl-kB-Eut"/>
                         </constraints>
                     </view>
                     <connections>
@@ -78,6 +115,12 @@
             <relationships>
                 <relationship kind="outlet" name="oBoolSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="oLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CustomTableViewCell01" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomTableViewCell01.h"/>
+            <relationships>
+                <relationship kind="outlet" name="oLabel01" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

@@ -58,7 +58,7 @@
         pbPickerView.dataSource = (id)self;
         pbPickerView.delegate = (id)self;
         
-        [[NSBundle mainBundle] loadNibNamed:@"ColorsView" owner:self options:nil];
+        [[NSBundle mainBundle] loadNibNamed:@"PBPickerView" owner:self options:nil];
         
         [self.contentView addSubview:viewLoadedFromXib];
         
