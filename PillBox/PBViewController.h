@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnotherPopupDelegate.h"
-#import "ColorsModalPanel.h"
+#import "PBPopupDelegate.h"
+#import "PBColorsModalPanel.h"
 
-@interface ViewController : UIViewController <AnotherPopupDelegate, UAModalPanelDelegate>
+@interface PBViewController : UIViewController <PBPopupDelegate, UAModalPanelDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *oTableView;
 

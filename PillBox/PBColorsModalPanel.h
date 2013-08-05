@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "UAModalPanel.h"
 #import "UANoisyGradientBackground.h"
-#import "AnotherPopupDelegate.h"
+#import "PBPopupDelegate.h"
 
-@interface ColorsModalPanel : UAModalPanel
+@interface PBColorsModalPanel : UAModalPanel
 {
     IBOutlet UIView             *viewLoadedFromXib;
 	CGFloat						titleBarHeight;
@@ -26,7 +26,7 @@
 @property (nonatomic, retain) UANoisyGradientBackground	*titleBar;
 // The title label
 @property (nonatomic, retain) UILabel					*headerLabel;
-@property (strong, nonatomic) id <AnotherPopupDelegate> popupDelegate;
+@property (strong, nonatomic) id <PBPopupDelegate> popupDelegate;
 @property (nonatomic, retain) IBOutlet UIView *viewLoadedFromXib;
 
 - (CGRect)titleBarFrame;

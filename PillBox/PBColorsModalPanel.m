@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Rex Fatahi. All rights reserved.
 //
 
-#import "ColorsModalPanel.h"
+#import "PBColorsModalPanel.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
-@interface ColorsModalPanel ()
+@interface PBColorsModalPanel ()
 {
     NSArray* pbSelections;
     UIPickerView* pbPickerView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ColorsModalPanel
+@implementation PBColorsModalPanel
 
 @synthesize titleBarHeight, titleBar, headerLabel, viewLoadedFromXib;
 

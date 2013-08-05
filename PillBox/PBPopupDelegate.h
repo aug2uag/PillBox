@@ -1,16 +1,17 @@
 //
-//  AnotherPopupDelegate.h
-//  OMApp
+//  PBPopupDelegate.h
+//  PillBox
 //
-//  Created by Reza Fatahi on 7/9/13.
+//  Created by Reza Fatahi on 8/4/13.
 //  Copyright (c) 2013 Rex Fatahi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "UAModalPanel.h"
 
-@protocol AnotherPopupDelegate <NSObject>
+@protocol PBPopupDelegate <NSObject>
 
 - (void)sendStringFromModalView:(NSString *)theString andModalPanel:(UAModalPanel *)theModalPanel;
 
 @end
+
