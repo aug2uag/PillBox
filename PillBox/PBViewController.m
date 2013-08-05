@@ -7,6 +7,7 @@
 //
 
 #import "PBViewController.h"
+#import "UICustomSwitch.h"
 
 @interface PBViewController ()
 {
@@ -14,6 +15,7 @@
     PBColorsModalPanel* pbColorPanel;
     PBSizeModalPanel*   pbSizePanel;
     PBShapeModalPanel*  pbShapePanel;
+    UICustomSwitch*     pbSwitch;
 }
 
 @end
@@ -25,6 +27,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     pbArray = @[@[@"Manufacturer", @"Name/Active ingredient", @"Inactive ingredient"], @[@"Color", @"Shape", @"Size"]];
+    
+    pbSwitch = [[UICustomSwitch alloc] initWithFrame:CGRectMake(220.0f, 57.0f, 40.0f, 20.0f)];
+    [self.view addSubview:pbSwitch];
+    pbSwitch.leftLabel.text = @"YES";
+    pbSwitch.rightLabel.text = @"NO";
 }
 
 
@@ -109,7 +116,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.0f;
+    return 27.0f;
 }
 
 - (void)sendStringFromModalView:(NSString *)theString andModalPanel:(UAModalPanel *)theModalPanel

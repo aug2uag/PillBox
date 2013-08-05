@@ -29,15 +29,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Return results with images only?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVd-Nk-gLw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="49b-SO-KIc"/>
+                                    <constraint firstAttribute="height" constant="50" id="4d4-XA-cdO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yW9-iJ-Bok" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Hlh-0e-pai"/>
-                            <constraint firstItem="frO-4W-ueb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="74" id="Ta9-LG-h5I"/>
                             <constraint firstItem="frO-4W-ueb" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Wwg-cY-fTv"/>
                             <constraint firstItem="frO-4W-ueb" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Zir-rc-4Ko"/>
+                            <constraint firstItem="zVd-Nk-gLw" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="8" id="bVS-Vi-yPS"/>
                             <constraint firstItem="yW9-iJ-Bok" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="bz1-Po-RzN"/>
+                            <constraint firstItem="frO-4W-ueb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="94" id="j3M-oH-g6G"/>
                             <constraint firstItem="yW9-iJ-Bok" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="ljl-kB-Eut"/>
+                            <constraint firstItem="zVd-Nk-gLw" firstAttribute="top" secondItem="yW9-iJ-Bok" secondAttribute="bottom" type="default" id="ola-el-mDA"/>
                         </constraints>
                     </view>
                     <connections>

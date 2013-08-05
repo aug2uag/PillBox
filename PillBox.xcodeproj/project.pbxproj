@@ -37,6 +37,10 @@
 		3492BB3217AF4A9E00A4A7B6 /* PBShapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3117AF4A9D00A4A7B6 /* PBShapeView.xib */; };
 		3492BB3517AF4AC900A4A7B6 /* PBSizeModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */; };
 		3492BB3817AF4AD800A4A7B6 /* PBShapeModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */; };
+		3492BB3B17AF5CC000A4A7B6 /* UICustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3A17AF5CC000A4A7B6 /* UICustomSwitch.m */; };
+		3492BB3F17AF5CD900A4A7B6 /* switchBlueBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3C17AF5CD900A4A7B6 /* switchBlueBg.png */; };
+		3492BB4017AF5CD900A4A7B6 /* switchOffPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3D17AF5CD900A4A7B6 /* switchOffPlain.png */; };
+		3492BB4117AF5CD900A4A7B6 /* switchThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3E17AF5CD900A4A7B6 /* switchThumb.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +89,11 @@
 		3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSizeModalPanel.m; sourceTree = "<group>"; };
 		3492BB3617AF4AD800A4A7B6 /* PBShapeModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBShapeModalPanel.h; sourceTree = "<group>"; };
 		3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBShapeModalPanel.m; sourceTree = "<group>"; };
+		3492BB3917AF5CC000A4A7B6 /* UICustomSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomSwitch.h; sourceTree = "<group>"; };
+		3492BB3A17AF5CC000A4A7B6 /* UICustomSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomSwitch.m; sourceTree = "<group>"; };
+		3492BB3C17AF5CD900A4A7B6 /* switchBlueBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchBlueBg.png; sourceTree = "<group>"; };
+		3492BB3D17AF5CD900A4A7B6 /* switchOffPlain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchOffPlain.png; sourceTree = "<group>"; };
+		3492BB3E17AF5CD900A4A7B6 /* switchThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchThumb.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +170,9 @@
 				3465EEE017AE1AA400985E0C /* modalButton-selected@2x.png */,
 				3465EEE117AE1AA400985E0C /* modalButton.png */,
 				3465EEE217AE1AA400985E0C /* modalButton@2x.png */,
+				3492BB3C17AF5CD900A4A7B6 /* switchBlueBg.png */,
+				3492BB3D17AF5CD900A4A7B6 /* switchOffPlain.png */,
+				3492BB3E17AF5CD900A4A7B6 /* switchThumb.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -168,6 +180,8 @@
 		3465EED917AE154A00985E0C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				3492BB3917AF5CC000A4A7B6 /* UICustomSwitch.h */,
+				3492BB3A17AF5CC000A4A7B6 /* UICustomSwitch.m */,
 				3465EEE917AE1AC000985E0C /* UIView+JMNoise.h */,
 				3465EEEA17AE1AC000985E0C /* UIView+JMNoise.m */,
 				3465EEEB17AE1AC000985E0C /* UAModalPanel.h */,
@@ -266,6 +280,9 @@
 				3465EF0517AE25FE00985E0C /* PBColorsView.xib in Resources */,
 				3492BB3017AF4A9500A4A7B6 /* PBSizeView.xib in Resources */,
 				3492BB3217AF4A9E00A4A7B6 /* PBShapeView.xib in Resources */,
+				3492BB3F17AF5CD900A4A7B6 /* switchBlueBg.png in Resources */,
+				3492BB4017AF5CD900A4A7B6 /* switchOffPlain.png in Resources */,
+				3492BB4117AF5CD900A4A7B6 /* switchThumb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +305,7 @@
 				3465EF0217AE202E00985E0C /* PBColorsModalPanel.m in Sources */,
 				3492BB3517AF4AC900A4A7B6 /* PBSizeModalPanel.m in Sources */,
 				3492BB3817AF4AD800A4A7B6 /* PBShapeModalPanel.m in Sources */,
+				3492BB3B17AF5CC000A4A7B6 /* UICustomSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
