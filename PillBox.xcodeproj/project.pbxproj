@@ -33,6 +33,8 @@
 		3465EEFF17AE1D3300985E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEFE17AE1D3300985E0C /* QuartzCore.framework */; };
 		3465EF0217AE202E00985E0C /* PBColorsModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */; };
 		3465EF0517AE25FE00985E0C /* PBColorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3465EF0417AE25FE00985E0C /* PBColorsView.xib */; };
+		347D2B5917B0F04B00706409 /* PBTextFieldModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */; };
+		347D2B5B17B0F09500706409 /* PBTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 347D2B5A17B0F09500706409 /* PBTextFieldView.xib */; };
 		3492BB3017AF4A9500A4A7B6 /* PBSizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB2F17AF4A9500A4A7B6 /* PBSizeView.xib */; };
 		3492BB3217AF4A9E00A4A7B6 /* PBShapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3117AF4A9D00A4A7B6 /* PBShapeView.xib */; };
 		3492BB3517AF4AC900A4A7B6 /* PBSizeModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */; };
@@ -82,6 +84,9 @@
 		3465EF0017AE202E00985E0C /* PBColorsModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBColorsModalPanel.h; sourceTree = "<group>"; };
 		3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBColorsModalPanel.m; sourceTree = "<group>"; };
 		3465EF0417AE25FE00985E0C /* PBColorsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBColorsView.xib; sourceTree = "<group>"; };
+		347D2B5717B0F04B00706409 /* PBTextFieldModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTextFieldModalPanel.h; sourceTree = "<group>"; };
+		347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTextFieldModalPanel.m; sourceTree = "<group>"; };
+		347D2B5A17B0F09500706409 /* PBTextFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBTextFieldView.xib; sourceTree = "<group>"; };
 		3492BB2617AF461F00A4A7B6 /* PBPopupDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBPopupDelegate.h; sourceTree = "<group>"; };
 		3492BB2F17AF4A9500A4A7B6 /* PBSizeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBSizeView.xib; sourceTree = "<group>"; };
 		3492BB3117AF4A9D00A4A7B6 /* PBShapeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBShapeView.xib; sourceTree = "<group>"; };
@@ -208,9 +213,12 @@
 				3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */,
 				3492BB3617AF4AD800A4A7B6 /* PBShapeModalPanel.h */,
 				3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */,
+				347D2B5717B0F04B00706409 /* PBTextFieldModalPanel.h */,
+				347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */,
 				3465EF0417AE25FE00985E0C /* PBColorsView.xib */,
 				3492BB2F17AF4A9500A4A7B6 /* PBSizeView.xib */,
 				3492BB3117AF4A9D00A4A7B6 /* PBShapeView.xib */,
+				347D2B5A17B0F09500706409 /* PBTextFieldView.xib */,
 			);
 			name = "PBModal Panels";
 			sourceTree = "<group>";
@@ -283,6 +291,7 @@
 				3492BB3F17AF5CD900A4A7B6 /* switchBlueBg.png in Resources */,
 				3492BB4017AF5CD900A4A7B6 /* switchOffPlain.png in Resources */,
 				3492BB4117AF5CD900A4A7B6 /* switchThumb.png in Resources */,
+				347D2B5B17B0F09500706409 /* PBTextFieldView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +315,7 @@
 				3492BB3517AF4AC900A4A7B6 /* PBSizeModalPanel.m in Sources */,
 				3492BB3817AF4AD800A4A7B6 /* PBShapeModalPanel.m in Sources */,
 				3492BB3B17AF5CC000A4A7B6 /* UICustomSwitch.m in Sources */,
+				347D2B5917B0F04B00706409 /* PBTextFieldModalPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,12 @@
 
 @interface PBViewController ()
 {
-    NSArray*            pbArray;
-    PBColorsModalPanel* pbColorPanel;
-    PBSizeModalPanel*   pbSizePanel;
-    PBShapeModalPanel*  pbShapePanel;
-    UICustomSwitch*     pbSwitch;
+    NSArray*                pbArray;
+    PBColorsModalPanel*     pbColorPanel;
+    PBSizeModalPanel*       pbSizePanel;
+    PBShapeModalPanel*      pbShapePanel;
+    PBTextFieldModalPanel* pbTextPanel;
+    UICustomSwitch*         pbSwitch;
 }
 
 @end
@@ -72,6 +73,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        pbTextPanel = [[PBTextFieldModalPanel alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.frame.size.width, self.view.bounds.size.width)];
+        pbTextPanel.delegate = (id)self;
+        pbTextPanel.popupDelegate = (id)self;
+        [self.view addSubview:pbTextPanel];
+        [pbTextPanel showFromPoint:self.view.center];
+    }
+    
     if (indexPath.section == 1 && indexPath.row == 0) {
         pbColorPanel = [[PBColorsModalPanel alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.frame.size.width, self.view.bounds.size.width)];
         pbColorPanel.delegate = (id)self;

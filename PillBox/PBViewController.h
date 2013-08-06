@@ -11,6 +11,7 @@
 #import "PBColorsModalPanel.h"
 #import "PBSizeModalPanel.h"
 #import "PBShapeModalPanel.h"
+#import "PBTextFieldModalPanel.h"
 
 @interface PBViewController : UIViewController <PBPopupDelegate, UAModalPanelDelegate>
 
