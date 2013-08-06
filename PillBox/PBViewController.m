@@ -129,6 +129,28 @@
         
         [[self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel setText:displayString];
         
+        return;
+        
+    }
+    
+    if (theModalPanel == pbShapePanel) {
+        NSString* displayString = [NSString stringWithFormat:@"Shape is: %@", theString];
+        
+        [[self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]].textLabel setText:displayString];
+        
+        [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:1]].textLabel.adjustsFontSizeToFitWidth = YES;
+        
+        return;
+    }
+    
+    if (theModalPanel == pbSizePanel) {
+        NSString* displayString = [NSString stringWithFormat:@"Size is: %@ ± 2 millimeters", theString];
+        
+        [[self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]].textLabel setText:displayString];
+        
+        [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:1]].textLabel.adjustsFontSizeToFitWidth = YES;
+        
+        return;
     }
 }
 
@@ -137,6 +159,7 @@
     if (modalPanel == pbColorPanel) {
         //code
     }
+    
 }
 
 @end
