@@ -227,28 +227,28 @@
 - (IBAction)searchWithAction:(id)sender
 {
     NSMutableDictionary* pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
-    if ([pbSizeString containsString:@"Size is: "]) {
+    if ([pbSizeString containsString:@"Size is: "] && ![pbSizeString containsString:@"NONE"]) {
         NSString* input = [pbSizeString componentsSeparatedByString:@"Size is: "][1];
         input = [input componentsSeparatedByString:@" "][0];
         [pbTemplate setValue:input forKey:@"size"];
     }
-    if ([pbShapeString containsString:@"Shape is:"]) {
+    if ([pbShapeString containsString:@"Shape is:"] && ![pbSizeString containsString:@"NONE"]) {
         NSString* input = [pbShapeString componentsSeparatedByString:@"Shape is: "][1];
         [pbTemplate setValue:input forKey:@"shape"];
     }
-    if ([pbColorString containsString:@"Color is:"]) {
+    if ([pbColorString containsString:@"Color is:"] && ![pbSizeString containsString:@"NONE"]) {
         NSString* input = [pbColorString componentsSeparatedByString:@"Color is: "][1];
         [pbTemplate setValue:input forKey:@"color"];
     }
-    if ([pbOtherString containsString:@"Inactive Ingredient:"]) {
+    if ([pbOtherString containsString:@"Inactive Ingredient:"] && ![pbSizeString containsString:@"NONE"]) {
         NSString* input = [pbOtherString componentsSeparatedByString:@"Inactive Ingredient: "][1];
         [pbTemplate setValue:input forKey:@"inactive"];
     }
-    if ([pbSizeString containsString:@"Active Ingredient:"]) {
+    if ([pbSizeString containsString:@"Active Ingredient:"] && ![pbSizeString containsString:@"NONE"]) {
         NSString* input = [pbSizeString componentsSeparatedByString:@"Active Ingredient: "][1];
         [pbActiveString setValue:input forKey:@"ingredient"];
     }
-    if ([pbAuthorString containsString:@"Rx Made By:"]) {
+    if ([pbAuthorString containsString:@"Rx Made By:"] && ![pbSizeString containsString:@"NONE"]) {
         NSString* input = [pbAuthorString componentsSeparatedByString:@"Rx Made By: "][1];
         [pbTemplate setValue:input forKey:@"author"];
     }

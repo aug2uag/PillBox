@@ -11,6 +11,5 @@
 @interface NSString (PBExtension)
 
 - (BOOL)containsString:(NSString*)substring;
-+ (NSString *)scanString:(NSString *)string startTag:(NSString *)startTag endTag:(NSString *)endTag;
 
 @end

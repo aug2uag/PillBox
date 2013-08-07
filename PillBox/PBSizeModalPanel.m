@@ -19,7 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        pbSelections = [[NSArray alloc] initWithObjects:@"2", @"4", @"6", @"8", @"10", @"12", @"14",@"16", @"18", @"20", @"22", @"24", @"25", nil];
+        pbSelections = [[NSArray alloc] initWithObjects:@"2", @"4", @"6", @"8", @"10", @"12", @"14",@"16", @"18", @"20", @"22", @"24", @"25", @"NONE", nil];
         
 		self.titleBarHeight = DEFAULT_TITLE_BAR_HEIGHT;
 		

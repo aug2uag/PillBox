@@ -19,7 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        pbSelections = [[NSArray alloc] initWithObjects:@"BULLET", @"CAPSULE", @"CLOVER", @"DIAMOND", @"DOUBLE CIRCLE", @"FREEFORM", @"GEAR",@"HEPTAGON", @"HEXAGON", @"OCTAGON", @"OVAL", @"PENTAGON", @"RECTANGLE", @"ROUND", @"SEMI-CIRCLE", @"SQUARE", @"TEAR", @"TRAPEZOID", @"TRIANGLE", nil];
+        pbSelections = [[NSArray alloc] initWithObjects:@"BULLET", @"CAPSULE", @"CLOVER", @"DIAMOND", @"DOUBLE CIRCLE", @"FREEFORM", @"GEAR",@"HEPTAGON", @"HEXAGON", @"OCTAGON", @"OVAL", @"PENTAGON", @"RECTANGLE", @"ROUND", @"SEMI-CIRCLE", @"SQUARE", @"TEAR", @"TRAPEZOID", @"TRIANGLE", @"NONE", nil];
         
 		self.titleBarHeight = DEFAULT_TITLE_BAR_HEIGHT;
 		
