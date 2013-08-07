@@ -26,7 +26,6 @@
 		3465EEE817AE1AA400985E0C /* modalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3465EEE217AE1AA400985E0C /* modalButton@2x.png */; };
 		3465EEF517AE1AC000985E0C /* UIView+JMNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEEA17AE1AC000985E0C /* UIView+JMNoise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3465EEF617AE1AC000985E0C /* UAModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEEC17AE1AC000985E0C /* UAModalPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3465EEF717AE1AC000985E0C /* UATitledModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEEE17AE1AC000985E0C /* UATitledModalPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3465EEF817AE1AC000985E0C /* UAGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF017AE1AC000985E0C /* UAGradientBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3465EEF917AE1AC000985E0C /* UANoisyGradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF217AE1AC000985E0C /* UANoisyGradientBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF417AE1AC000985E0C /* UARoundedRectView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -70,8 +69,6 @@
 		3465EEEA17AE1AC000985E0C /* UIView+JMNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JMNoise.m"; sourceTree = "<group>"; };
 		3465EEEB17AE1AC000985E0C /* UAModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAModalPanel.h; sourceTree = "<group>"; };
 		3465EEEC17AE1AC000985E0C /* UAModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAModalPanel.m; sourceTree = "<group>"; };
-		3465EEED17AE1AC000985E0C /* UATitledModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UATitledModalPanel.h; sourceTree = "<group>"; };
-		3465EEEE17AE1AC000985E0C /* UATitledModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATitledModalPanel.m; sourceTree = "<group>"; };
 		3465EEEF17AE1AC000985E0C /* UAGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGradientBackground.h; sourceTree = "<group>"; };
 		3465EEF017AE1AC000985E0C /* UAGradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGradientBackground.m; sourceTree = "<group>"; };
 		3465EEF117AE1AC000985E0C /* UANoisyGradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UANoisyGradientBackground.h; sourceTree = "<group>"; };
@@ -187,8 +184,6 @@
 				3465EEEA17AE1AC000985E0C /* UIView+JMNoise.m */,
 				3465EEEB17AE1AC000985E0C /* UAModalPanel.h */,
 				3465EEEC17AE1AC000985E0C /* UAModalPanel.m */,
-				3465EEED17AE1AC000985E0C /* UATitledModalPanel.h */,
-				3465EEEE17AE1AC000985E0C /* UATitledModalPanel.m */,
 				3465EEEF17AE1AC000985E0C /* UAGradientBackground.h */,
 				3465EEF017AE1AC000985E0C /* UAGradientBackground.m */,
 				3465EEF117AE1AC000985E0C /* UANoisyGradientBackground.h */,
@@ -299,7 +294,6 @@
 				3465EED317AE0CD800985E0C /* PBViewController.m in Sources */,
 				3465EEF517AE1AC000985E0C /* UIView+JMNoise.m in Sources */,
 				3465EEF617AE1AC000985E0C /* UAModalPanel.m in Sources */,
-				3465EEF717AE1AC000985E0C /* UATitledModalPanel.m in Sources */,
 				3465EEF817AE1AC000985E0C /* UAGradientBackground.m in Sources */,
 				3465EEF917AE1AC000985E0C /* UANoisyGradientBackground.m in Sources */,
 				3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */,
