@@ -168,8 +168,8 @@
         
         if ([theString containsString:@"&!ACTIVE"]) {
             NSString* displayString = [theString componentsSeparatedByString:@" &!ACTIVE"][0];
-            displayString = [NSString stringWithFormat:@"Active Ingredient: %@", displayString];
             pbActiveString = displayString;
+            displayString = [NSString stringWithFormat:@"Active Ingredient: %@", displayString];
             UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
             cell.accessoryType = UITableViewCellAccessoryNone;
             [cell.textLabel setText:displayString];
@@ -224,31 +224,35 @@
     
 }
 
-
-
-
 - (IBAction)searchWithAction:(id)sender
 {
-    NSLog(@"inside search button");
     NSMutableDictionary* pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
-    if ([pbSizeString containsString:@"Size is:"]) {
-        [pbTemplate setValue:pbSizeString forKey:@"size"];
+    if ([pbSizeString containsString:@"Size is: "]) {
+        NSString* input = [pbSizeString componentsSeparatedByString:@"Size is: "][1];
+        input = [input componentsSeparatedByString:@" "][0];
+        [pbTemplate setValue:input forKey:@"size"];
     }
-    if ([pbSizeString containsString:@"Shape is:"]) {
-        [pbTemplate setValue:pbShapeString forKey:@"shape"];
+    if ([pbShapeString containsString:@"Shape is:"]) {
+        NSString* input = [pbShapeString componentsSeparatedByString:@"Shape is: "][1];
+        [pbTemplate setValue:input forKey:@"shape"];
     }
-    if ([pbSizeString containsString:@"Color is:"]) {
-        [pbTemplate setValue:pbColorString forKey:@"color"];
+    if ([pbColorString containsString:@"Color is:"]) {
+        NSString* input = [pbColorString componentsSeparatedByString:@"Color is: "][1];
+        [pbTemplate setValue:input forKey:@"color"];
     }
-    if ([pbSizeString containsString:@"Inactive Ingredient:"]) {
-        [pbTemplate setValue:pbOtherString forKey:@"inactive"];
+    if ([pbOtherString containsString:@"Inactive Ingredient:"]) {
+        NSString* input = [pbOtherString componentsSeparatedByString:@"Inactive Ingredient: "][1];
+        [pbTemplate setValue:input forKey:@"inactive"];
     }
     if ([pbSizeString containsString:@"Active Ingredient:"]) {
-        [pbTemplate setValue:pbActiveString forKey:@"ingredient"];
+        NSString* input = [pbSizeString componentsSeparatedByString:@"Active Ingredient: "][1];
+        [pbActiveString setValue:input forKey:@"ingredient"];
     }
-    if ([pbSizeString containsString:@"Rx Made By:"]) {
-        [pbTemplate setValue:pbAuthorString forKey:@"author"];
+    if ([pbAuthorString containsString:@"Rx Made By:"]) {
+        NSString* input = [pbAuthorString componentsSeparatedByString:@"Rx Made By: "][1];
+        [pbTemplate setValue:input forKey:@"author"];
     }
-
+    
 }
+
 @end
