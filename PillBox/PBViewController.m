@@ -8,6 +8,7 @@
 
 #import "PBViewController.h"
 #import "UICustomSwitch.h"
+#import "NSString+PBExtension.h"
 
 @interface PBViewController ()
 {
@@ -17,7 +18,8 @@
     PBShapeModalPanel*      pbShapePanel;
     PBTextFieldModalPanel*  pbTextPanel;
     UICustomSwitch*         pbSwitch;
-    NSString*               pbOriginString;
+    
+    
 }
 
 @end
@@ -76,15 +78,23 @@
 {
     if (indexPath.section == 0) {
         pbTextPanel = [[PBTextFieldModalPanel alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.frame.size.width, self.view.bounds.size.width)];
-
-        if (indexPath.row == 0) {
-            NSLog(@"WOWOWOWOW");
-            //pbTextPanel = self.tfDelegate;
-            pbTextPanel.originString = @"Manufacturer";
-            
-            //[self.tfDelegate whoSetMeHere:@"Manufacturer"];
-        }
         
+        switch (indexPath.row) {
+            case 0:
+                pbTextPanel.originString = @"MANUFACTURER";
+                break;
+                
+            case 1:
+                pbTextPanel.originString = @"ACTIVE INGREDIENT";
+                break;
+                
+            case 2:
+                pbTextPanel.originString = @"OTHER INGREDIENT";
+                break;
+                
+            default:
+                break;
+        }
         
         pbTextPanel.delegate = (id)self;
         pbTextPanel.popupDelegate = (id)self;
@@ -142,47 +152,72 @@
 
 - (void)sendStringFromModalView:(NSString *)theString andModalPanel:(UAModalPanel *)theModalPanel
 {
-
+    if (theModalPanel == pbTextPanel) {
+        if ([theString containsString:@"&!MANUFACTURER"]) {
+            NSLog(@"theString -> %@", theString);
+            NSString* displayString =  [theString componentsSeparatedByString:@" &!MANUFACTURER"][0];
+            NSLog(@"displayString => %@", displayString);
+            displayString = [NSString stringWithFormat:@"Rx Made By: %@", displayString];
+            UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            [cell.textLabel setText:displayString];
+            cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        }
+        
+        if ([theString containsString:@"&!ACTIVE"]) {
+            NSString* displayString = [theString componentsSeparatedByString:@" &!ACTIVE"][0];
+            displayString = [NSString stringWithFormat:@"Active Ingredient: %@", displayString];
+            UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            [cell.textLabel setText:displayString];
+            cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        }
+        
+        if ([theString containsString:@"&!OTHER"]) {
+            NSLog(@"theString -> %@", theString);
+            NSString* displayString = [theString componentsSeparatedByString:@" &!OTHER"][0];
+            NSLog(@"displayString => %@", displayString);
+            displayString = [NSString stringWithFormat:@"Inactive Ingredient: %@", displayString];
+            UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            [cell.textLabel setText:displayString];
+            cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        }
+        
+    }
     
     if (theModalPanel == pbColorPanel) {
-        
         NSString* displayString = [NSString stringWithFormat:@"Color is: %@", theString];
-        
-        [[self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel setText:displayString];
-        
+        UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [cell.textLabel setText:displayString];
         return;
-        
     }
     
     if (theModalPanel == pbShapePanel) {
         NSString* displayString = [NSString stringWithFormat:@"Shape is: %@", theString];
-        
-        [[self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]].textLabel setText:displayString];
-        
-        [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:1]].textLabel.adjustsFontSizeToFitWidth = YES;
-        
+        UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [cell.textLabel setText:displayString];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
         return;
     }
     
     if (theModalPanel == pbSizePanel) {
         NSString* displayString = [NSString stringWithFormat:@"Size is: %@ ± 2 millimeters", theString];
-        
-        [[self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]].textLabel setText:displayString];
-        
-        [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:1]].textLabel.adjustsFontSizeToFitWidth = YES;
-        
+        UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [cell.textLabel setText:displayString];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
         return;
     }
-}
-
-- (void)willCloseModalPanel:(UAModalPanel *)modalPanel
-{
     
 }
 
 - (void)willShowModalPanel:(UAModalPanel *)modalPanel
 {
-
+    
 }
+
 
 @end

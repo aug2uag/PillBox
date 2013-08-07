@@ -21,8 +21,12 @@
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
 @interface PBTextFieldModalPanel ()
+{
+    NSString* inputFromManufacturer;
+    NSString* inputFromActive;
+    NSString* inputFromInactive;
+}
 
-- (void)checkValidityOfSearchTerm:(NSString *)input;
 - (IBAction)pbAction:(id)sender;
 
 @end
@@ -58,9 +62,7 @@
 		self.headerLabel.textAlignment = NSTextAlignmentCenter	;
 		[self.titleBar addSubview:self.headerLabel];
         
-		[self.titleBar setColorComponents:colors];
-        self.headerLabel.text = [NSString stringWithFormat:@"%@", self.originString];
-        
+		[self.titleBar setColorComponents:colors];        
         
         [[NSBundle mainBundle] loadNibNamed:@"PBTextFieldView" owner:self options:nil];
         
@@ -71,6 +73,16 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.titleBar.frame = [self titleBarFrame];
+	self.headerLabel.frame = self.titleBar.bounds;
+    self.headerLabel.text = [NSString stringWithFormat:@"%@", self.originString];
+	
+	[viewLoadedFromXib setFrame:self.contentView.bounds];
+}
 
 - (CGRect)titleBarFrame {
 	CGRect frame = [self.roundedRect bounds];
@@ -117,21 +129,29 @@
 }
 
 
-- (void)layoutSubviews {
-	[super layoutSubviews];
-    
-    self.titleBar.frame = [self titleBarFrame];
-	self.headerLabel.frame = self.titleBar.bounds;
-	
-	[viewLoadedFromXib setFrame:self.contentView.bounds];
-}
-
-- (void)checkValidityOfSearchTerm:(NSString *)input
+- (IBAction)pbAction:(id)sender
 {
-    
-}
-
-- (IBAction)pbAction:(id)sender {
+    if ([self.headerLabel.text isEqualToString:@"MANUFACTURER"]) {
+        NSLog(@"one");
+        inputFromManufacturer = [NSString stringWithFormat:@"%@ &!MANUFACTURER", self.pbTextField.text];
+        NSLog(@"inputfromMan =. %@", inputFromManufacturer);
+        [self.popupDelegate sendStringFromModalView:inputFromManufacturer andModalPanel:self];
+        [self hide];
+    } else if ([self.headerLabel.text isEqualToString:@"ACTIVE INGREDIENT"]) {
+        NSLog(@"two");
+        inputFromActive = [NSString stringWithFormat:@"%@ &!ACTIVE", self.pbTextField.text];
+        [self.popupDelegate sendStringFromModalView:inputFromActive andModalPanel:self];
+        [self hide];
+    } else if ([self.headerLabel.text isEqualToString:@"OTHER INGREDIENT"]) {
+        NSLog(@"three");
+        inputFromInactive = [NSString stringWithFormat:@"%@ &!OTHER", self.pbTextField.text];
+        NSLog(@"other => %@", inputFromInactive);
+        [self.popupDelegate sendStringFromModalView:inputFromInactive andModalPanel:self];
+        [self hide];
+    } else {
+        [self hide];
+        NSLog(@"error, invalid header label");
+    }
 }
 
 

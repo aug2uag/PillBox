@@ -33,6 +33,7 @@
 		3465EF0217AE202E00985E0C /* PBColorsModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */; };
 		347D2B5917B0F04B00706409 /* PBTextFieldModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */; };
 		347D2B5B17B0F09500706409 /* PBTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 347D2B5A17B0F09500706409 /* PBTextFieldView.xib */; };
+		347D2B5F17B1F47A00706409 /* NSString+PBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 347D2B5E17B1F47A00706409 /* NSString+PBExtension.m */; };
 		3492BB3017AF4A9500A4A7B6 /* PBPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB2F17AF4A9500A4A7B6 /* PBPickerView.xib */; };
 		3492BB3517AF4AC900A4A7B6 /* PBSizeModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */; };
 		3492BB3817AF4AD800A4A7B6 /* PBShapeModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */; };
@@ -81,6 +82,8 @@
 		347D2B5717B0F04B00706409 /* PBTextFieldModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTextFieldModalPanel.h; sourceTree = "<group>"; };
 		347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTextFieldModalPanel.m; sourceTree = "<group>"; };
 		347D2B5A17B0F09500706409 /* PBTextFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBTextFieldView.xib; sourceTree = "<group>"; };
+		347D2B5D17B1F47900706409 /* NSString+PBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PBExtension.h"; sourceTree = "<group>"; };
+		347D2B5E17B1F47A00706409 /* NSString+PBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PBExtension.m"; sourceTree = "<group>"; };
 		3492BB2617AF461F00A4A7B6 /* PBPopupDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBPopupDelegate.h; sourceTree = "<group>"; };
 		3492BB2F17AF4A9500A4A7B6 /* PBPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBPickerView.xib; sourceTree = "<group>"; };
 		3492BB3317AF4AC900A4A7B6 /* PBSizeModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSizeModalPanel.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				3465EECE17AE0CD800985E0C /* MainStoryboard.storyboard */,
 				3465EED117AE0CD800985E0C /* PBViewController.h */,
 				3465EED217AE0CD800985E0C /* PBViewController.m */,
+				347D2B5D17B1F47900706409 /* NSString+PBExtension.h */,
+				347D2B5E17B1F47A00706409 /* NSString+PBExtension.m */,
 				3492BB2817AF468A00A4A7B6 /* PBModal Panels */,
 				3465EEBD17AE0CD700985E0C /* Supporting Files */,
 			);
@@ -198,14 +203,14 @@
 			isa = PBXGroup;
 			children = (
 				3492BB2617AF461F00A4A7B6 /* PBPopupDelegate.h */,
-				3465EF0017AE202E00985E0C /* PBColorsModalPanel.h */,
-				3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */,
-				3492BB3317AF4AC900A4A7B6 /* PBSizeModalPanel.h */,
-				3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */,
-				3492BB3617AF4AD800A4A7B6 /* PBShapeModalPanel.h */,
-				3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */,
 				347D2B5717B0F04B00706409 /* PBTextFieldModalPanel.h */,
 				347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */,
+				3465EF0017AE202E00985E0C /* PBColorsModalPanel.h */,
+				3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */,
+				3492BB3617AF4AD800A4A7B6 /* PBShapeModalPanel.h */,
+				3492BB3717AF4AD800A4A7B6 /* PBShapeModalPanel.m */,
+				3492BB3317AF4AC900A4A7B6 /* PBSizeModalPanel.h */,
+				3492BB3417AF4AC900A4A7B6 /* PBSizeModalPanel.m */,
 				3492BB2F17AF4A9500A4A7B6 /* PBPickerView.xib */,
 				347D2B5A17B0F09500706409 /* PBTextFieldView.xib */,
 			);
@@ -302,6 +307,7 @@
 				3492BB3817AF4AD800A4A7B6 /* PBShapeModalPanel.m in Sources */,
 				3492BB3B17AF5CC000A4A7B6 /* UICustomSwitch.m in Sources */,
 				347D2B5917B0F04B00706409 /* PBTextFieldModalPanel.m in Sources */,
+				347D2B5F17B1F47A00706409 /* NSString+PBExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

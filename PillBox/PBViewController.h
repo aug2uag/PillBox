@@ -16,5 +16,6 @@
 @interface PBViewController : UIViewController <PBPopupDelegate, UAModalPanelDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *oTableView;
+@property (strong, nonatomic) NSString* originString;
 
 @end
