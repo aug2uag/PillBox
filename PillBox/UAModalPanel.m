@@ -312,7 +312,7 @@
 	// Show the view right away
     [UIView animateWithDuration:0.3
 						  delay:0.0
-						options:UIViewAnimationCurveEaseOut
+						options:(UIViewAnimationOptions)UIViewAnimationCurveEaseOut
 					 animations:^{
 						 self.alpha = 1.0;
 						 self.contentContainer.center = self.center;
