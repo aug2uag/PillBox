@@ -15,13 +15,14 @@
 //
 
 #import "PBTextFieldModalPanel.h"
+#import "PBViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
 @interface PBTextFieldModalPanel ()
 
-- (BOOL)checkValidityOfSearchTerm:(NSString *)input;
+- (void)checkValidityOfSearchTerm:(NSString *)input;
 - (IBAction)pbAction:(id)sender;
 
 @end
@@ -58,7 +59,8 @@
 		[self.titleBar addSubview:self.headerLabel];
         
 		[self.titleBar setColorComponents:colors];
-        self.headerLabel.text = @" ";
+        self.headerLabel.text = [NSString stringWithFormat:@"%@", self.originString];
+        
         
         [[NSBundle mainBundle] loadNibNamed:@"PBTextFieldView" owner:self options:nil];
         
@@ -124,7 +126,7 @@
 	[viewLoadedFromXib setFrame:self.contentView.bounds];
 }
 
-- (BOOL)checkValidityOfSearchTerm:(NSString *)input
+- (void)checkValidityOfSearchTerm:(NSString *)input
 {
     
 }

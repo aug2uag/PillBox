@@ -19,7 +19,8 @@
 	UILabel*                    headerLabel;
 }
 
-@property (weak, nonatomic) IBOutlet UITextField *pbTextField;
+@property (strong, nonatomic) NSString*                 originString;
+@property (weak, nonatomic) IBOutlet UITextField *      pbTextField;
 @property (nonatomic, assign) CGFloat					titleBarHeight;
 @property (nonatomic, retain) UANoisyGradientBackground*titleBar;
 @property (nonatomic, retain) UILabel*                  headerLabel;
