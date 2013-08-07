@@ -19,8 +19,14 @@
     PBTextFieldModalPanel*  pbTextPanel;
     UICustomSwitch*         pbSwitch;
     
-    
+    NSString*               pbAuthorString;
+    NSString*               pbActiveString;
+    NSString*               pbOtherString;
+    NSString*               pbColorString;
+    NSString*               pbShapeString;
+    NSString*               pbSizeString;
 }
+- (IBAction)searchWithAction:(id)sender;
 
 @end
 
@@ -70,7 +76,6 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     return cell;
-    
     
 }
 
@@ -127,8 +132,6 @@
         [pbSizePanel showFromPoint:self.view.center];
     }
     
-    
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,9 +157,8 @@
 {
     if (theModalPanel == pbTextPanel) {
         if ([theString containsString:@"&!MANUFACTURER"]) {
-            NSLog(@"theString -> %@", theString);
             NSString* displayString =  [theString componentsSeparatedByString:@" &!MANUFACTURER"][0];
-            NSLog(@"displayString => %@", displayString);
+            pbAuthorString = displayString;
             displayString = [NSString stringWithFormat:@"Rx Made By: %@", displayString];
             UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -167,6 +169,7 @@
         if ([theString containsString:@"&!ACTIVE"]) {
             NSString* displayString = [theString componentsSeparatedByString:@" &!ACTIVE"][0];
             displayString = [NSString stringWithFormat:@"Active Ingredient: %@", displayString];
+            pbActiveString = displayString;
             UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
             cell.accessoryType = UITableViewCellAccessoryNone;
             [cell.textLabel setText:displayString];
@@ -174,10 +177,9 @@
         }
         
         if ([theString containsString:@"&!OTHER"]) {
-            NSLog(@"theString -> %@", theString);
             NSString* displayString = [theString componentsSeparatedByString:@" &!OTHER"][0];
-            NSLog(@"displayString => %@", displayString);
             displayString = [NSString stringWithFormat:@"Inactive Ingredient: %@", displayString];
+            pbOtherString = displayString;
             UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
             cell.accessoryType = UITableViewCellAccessoryNone;
             [cell.textLabel setText:displayString];
@@ -188,6 +190,7 @@
     
     if (theModalPanel == pbColorPanel) {
         NSString* displayString = [NSString stringWithFormat:@"Color is: %@", theString];
+        pbColorString = displayString;
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell.textLabel setText:displayString];
@@ -196,6 +199,7 @@
     
     if (theModalPanel == pbShapePanel) {
         NSString* displayString = [NSString stringWithFormat:@"Shape is: %@", theString];
+        pbShapeString = displayString;
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell.textLabel setText:displayString];
@@ -205,6 +209,7 @@
     
     if (theModalPanel == pbSizePanel) {
         NSString* displayString = [NSString stringWithFormat:@"Size is: %@ ± 2 millimeters", theString];
+        pbSizeString = displayString;
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell.textLabel setText:displayString];
@@ -220,4 +225,30 @@
 }
 
 
+
+
+- (IBAction)searchWithAction:(id)sender
+{
+    NSLog(@"inside search button");
+    NSMutableDictionary* pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
+    if ([pbSizeString containsString:@"Size is:"]) {
+        [pbTemplate setValue:pbSizeString forKey:@"size"];
+    }
+    if ([pbSizeString containsString:@"Shape is:"]) {
+        [pbTemplate setValue:pbShapeString forKey:@"shape"];
+    }
+    if ([pbSizeString containsString:@"Color is:"]) {
+        [pbTemplate setValue:pbColorString forKey:@"color"];
+    }
+    if ([pbSizeString containsString:@"Inactive Ingredient:"]) {
+        [pbTemplate setValue:pbOtherString forKey:@"inactive"];
+    }
+    if ([pbSizeString containsString:@"Active Ingredient:"]) {
+        [pbTemplate setValue:pbActiveString forKey:@"ingredient"];
+    }
+    if ([pbSizeString containsString:@"Rx Made By:"]) {
+        [pbTemplate setValue:pbAuthorString forKey:@"author"];
+    }
+
+}
 @end
