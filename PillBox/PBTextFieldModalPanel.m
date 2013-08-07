@@ -132,20 +132,15 @@
 - (IBAction)pbAction:(id)sender
 {
     if ([self.headerLabel.text isEqualToString:@"MANUFACTURER"]) {
-        NSLog(@"one");
         inputFromManufacturer = [NSString stringWithFormat:@"%@ &!MANUFACTURER", self.pbTextField.text];
-        NSLog(@"inputfromMan =. %@", inputFromManufacturer);
         [self.popupDelegate sendStringFromModalView:inputFromManufacturer andModalPanel:self];
         [self hide];
     } else if ([self.headerLabel.text isEqualToString:@"ACTIVE INGREDIENT"]) {
-        NSLog(@"two");
         inputFromActive = [NSString stringWithFormat:@"%@ &!ACTIVE", self.pbTextField.text];
         [self.popupDelegate sendStringFromModalView:inputFromActive andModalPanel:self];
         [self hide];
     } else if ([self.headerLabel.text isEqualToString:@"OTHER INGREDIENT"]) {
-        NSLog(@"three");
         inputFromInactive = [NSString stringWithFormat:@"%@ &!OTHER", self.pbTextField.text];
-        NSLog(@"other => %@", inputFromInactive);
         [self.popupDelegate sendStringFromModalView:inputFromInactive andModalPanel:self];
         [self hide];
     } else {

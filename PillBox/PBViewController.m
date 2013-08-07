@@ -252,6 +252,9 @@
         NSString* input = [pbAuthorString componentsSeparatedByString:@"Rx Made By: "][1];
         [pbTemplate setValue:input forKey:@"author"];
     }
+    if (pbSwitch.on) {
+        [pbTemplate setValue:nil forKey:@"has_image"];
+    }
     
 }
 
