@@ -189,7 +189,12 @@
     }
     
     if (theModalPanel == pbColorPanel) {
-        pbColorString = [theString componentsSeparatedByString:@"is: "][1];
+        if ([theString containsString:@"is:"]) {
+            pbColorString = [theString componentsSeparatedByString:@"is: "][1];
+        } else {
+            pbColorString = nil;
+        }
+        
         NSLog(@"sizeString %@", pbColorString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -198,7 +203,12 @@
     }
     
     if (theModalPanel == pbShapePanel) {
-        pbShapeString = [theString componentsSeparatedByString:@"is: "][1];
+        if ([theString containsString:@"is:"]) {
+            pbShapeString = [theString componentsSeparatedByString:@"is: "][1];
+        } else {
+            pbShapeString = nil;
+        }
+        
         NSLog(@"sizeString %@", pbShapeString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -208,8 +218,13 @@
     }
     
     if (theModalPanel == pbSizePanel) {
-        pbSizeString = [theString componentsSeparatedByString:@"is: "][1];
-        pbSizeString = [pbSizeString componentsSeparatedByString:@" ±"][0];
+        if ([theString containsString:@"is:"]) {
+            pbSizeString = [theString componentsSeparatedByString:@"is: "][1];
+            pbSizeString = [pbSizeString componentsSeparatedByString:@" ±"][0];
+        } else {
+            pbSizeString = nil;
+        }
+        
         NSLog(@"sizeString %@", pbSizeString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
