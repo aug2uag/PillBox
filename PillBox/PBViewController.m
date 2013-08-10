@@ -40,8 +40,8 @@
     
     pbSwitch = [[UICustomSwitch alloc] initWithFrame:CGRectMake(220.0f, 57.0f, 40.0f, 20.0f)];
     [self.view addSubview:pbSwitch];
-    pbSwitch.leftLabel.text = @"YES";
-    pbSwitch.rightLabel.text = @"NO";
+    pbSwitch.leftLabel.text = @"ON";
+    pbSwitch.rightLabel.text = @"OFF";
 }
 
 
@@ -242,36 +242,31 @@
 
 - (IBAction)searchWithAction:(id)sender
 {
+    NSLog(@"HHEEEYYY");
     NSMutableDictionary* pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
-    if ([pbSizeString containsString:@"Size is: "] && ![pbSizeString containsString:@"NONE"]) {
-        NSString* input = [pbSizeString componentsSeparatedByString:@"Size is: "][1];
-        input = [input componentsSeparatedByString:@" "][0];
-        [pbTemplate setValue:input forKey:@"size"];
+    if (pbSizeString != nil && pbSizeString.length > 0) {
+        [pbTemplate setValue:pbSizeString forKey:@"size"];
     }
-    if ([pbShapeString containsString:@"Shape is:"] && ![pbSizeString containsString:@"NONE"]) {
-        NSString* input = [pbShapeString componentsSeparatedByString:@"Shape is: "][1];
-        [pbTemplate setValue:input forKey:@"shape"];
+    if (pbShapeString != nil && pbShapeString.length > 0) {
+        [pbTemplate setValue:pbShapeString forKey:@"shape"];
     }
-    if ([pbColorString containsString:@"Color is:"] && ![pbSizeString containsString:@"NONE"]) {
-        NSString* input = [pbColorString componentsSeparatedByString:@"Color is: "][1];
-        [pbTemplate setValue:input forKey:@"color"];
+    if (pbColorString != nil && pbColorString.length > 0) {
+        [pbTemplate setValue:pbColorString forKey:@"color"];
     }
-    if ([pbOtherString containsString:@"Inactive Ingredient:"] && ![pbSizeString containsString:@"NONE"]) {
-        NSString* input = [pbOtherString componentsSeparatedByString:@"Inactive Ingredient: "][1];
-        [pbTemplate setValue:input forKey:@"inactive"];
+    if (pbOtherString.length > 0) {
+        [pbTemplate setValue:pbOtherString forKey:@"inactive"];
     }
-    if ([pbSizeString containsString:@"Active Ingredient:"] && ![pbSizeString containsString:@"NONE"]) {
-        NSString* input = [pbSizeString componentsSeparatedByString:@"Active Ingredient: "][1];
-        [pbActiveString setValue:input forKey:@"ingredient"];
+    if (pbActiveString.length > 0) {
+        [pbTemplate setValue:pbActiveString forKey:@"ingredient"];
     }
-    if ([pbAuthorString containsString:@"Rx Made By:"] && ![pbSizeString containsString:@"NONE"]) {
-        NSString* input = [pbAuthorString componentsSeparatedByString:@"Rx Made By: "][1];
-        [pbTemplate setValue:input forKey:@"author"];
+    if (pbAuthorString.length > 0) {
+        [pbTemplate setValue:pbAuthorString forKey:@"author"];
     }
     if (pbSwitch.on) {
-        [pbTemplate setValue:nil forKey:@"has_image"];
+        [pbTemplate setValue:@1 forKey:@"has_image"];
     }
     
+    NSLog(@"pbTemplate => %@", pbTemplate);
 }
 
 @end
