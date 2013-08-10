@@ -11,6 +11,13 @@
 
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
+@interface PBShapeModalPanel ()
+{
+    int i;
+}
+
+@end
+
 @implementation PBShapeModalPanel
 
 @synthesize titleBarHeight, titleBar, headerLabel, viewLoadedFromXib, pbSelections, pbPickerView;
@@ -18,8 +25,9 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        i = 0;
         
-        pbSelections = [[NSArray alloc] initWithObjects:@"BULLET", @"CAPSULE", @"CLOVER", @"DIAMOND", @"DOUBLE CIRCLE", @"FREEFORM", @"GEAR",@"HEPTAGON", @"HEXAGON", @"OCTAGON", @"OVAL", @"PENTAGON", @"RECTANGLE", @"ROUND", @"SEMI-CIRCLE", @"SQUARE", @"TEAR", @"TRAPEZOID", @"TRIANGLE", @"NONE", nil];
+        pbSelections = [[NSArray alloc] initWithObjects:@"Select", @"BULLET", @"CAPSULE", @"CLOVER", @"DIAMOND", @"DOUBLE CIRCLE", @"FREEFORM", @"GEAR",@"HEPTAGON", @"HEXAGON", @"OCTAGON", @"OVAL", @"PENTAGON", @"RECTANGLE", @"ROUND", @"SEMI-CIRCLE", @"SQUARE", @"TEAR", @"TRAPEZOID", @"TRIANGLE", @"NONE", nil];
         
 		self.titleBarHeight = DEFAULT_TITLE_BAR_HEIGHT;
 		
@@ -134,7 +142,21 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self.popupDelegate sendStringFromModalView:[NSString stringWithFormat:@"%@", pbSelections[row]] andModalPanel:self];
+    if (row == 0) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Please make" message:@"valid selection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        i++;
+        if (i%3 == 0) {
+            [alert show];
+        }
+        return;
+    }
+    
+    if (row == 20) {
+        [self.popupDelegate sendStringFromModalView:@"None selected" andModalPanel:self];
+        return;
+    }
+    
+    [self.popupDelegate sendStringFromModalView:[NSString stringWithFormat:@"Shape is: %@", pbSelections[row]] andModalPanel:self];
 }
 
 

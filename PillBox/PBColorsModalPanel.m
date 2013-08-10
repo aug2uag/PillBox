@@ -12,6 +12,9 @@
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
 @interface PBColorsModalPanel ()
+{
+    int i;
+}
 
 @end
 
@@ -23,7 +26,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        pbSelections = [[NSArray alloc] initWithObjects:@"BLACK", @"BLUE", @"BROWN", @"GRAY", @"GREEN", @"ORANGE", @"PINK",@"PURPLE", @"RED", @"TURQUOISE", @"WHITE", @"YELLOW", @"NONE", nil];
+        i = 0;
+        
+        pbSelections = [[NSArray alloc] initWithObjects:@"Select", @"BLACK", @"BLUE", @"BROWN", @"GRAY", @"GREEN", @"ORANGE", @"PINK",@"PURPLE", @"RED", @"TURQUOISE", @"WHITE", @"YELLOW", @"NONE", nil];
         
 		self.titleBarHeight = DEFAULT_TITLE_BAR_HEIGHT;
 		
@@ -138,7 +143,22 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self.popupDelegate sendStringFromModalView:[NSString stringWithFormat:@"%@", pbSelections[row]] andModalPanel:self];
+    if (row == 0) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Please make" message:@"valid selection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        i++;
+        if (i%3 == 0) {
+            [alert show];
+        }
+        
+        return;
+    }
+    
+    if (row == 13) {
+        [self.popupDelegate sendStringFromModalView:@"None selected" andModalPanel:self];
+        return;
+    }
+    
+    [self.popupDelegate sendStringFromModalView:[NSString stringWithFormat:@"Color is: %@", pbSelections[row]] andModalPanel:self];
 }
 
 

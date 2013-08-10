@@ -189,30 +189,31 @@
     }
     
     if (theModalPanel == pbColorPanel) {
-        NSString* displayString = [NSString stringWithFormat:@"Color is: %@", theString];
-        pbColorString = displayString;
+        pbColorString = [theString componentsSeparatedByString:@"is: "][1];
+        NSLog(@"sizeString %@", pbColorString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [cell.textLabel setText:displayString];
+        [cell.textLabel setText:theString];
         return;
     }
     
     if (theModalPanel == pbShapePanel) {
-        NSString* displayString = [NSString stringWithFormat:@"Shape is: %@", theString];
-        pbShapeString = displayString;
+        pbShapeString = [theString componentsSeparatedByString:@"is: "][1];
+        NSLog(@"sizeString %@", pbShapeString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [cell.textLabel setText:displayString];
+        [cell.textLabel setText:theString];
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
         return;
     }
     
     if (theModalPanel == pbSizePanel) {
-        NSString* displayString = [NSString stringWithFormat:@"Size is: %@ ± 2 millimeters", theString];
-        pbSizeString = displayString;
+        pbSizeString = [theString componentsSeparatedByString:@"is: "][1];
+        pbSizeString = [pbSizeString componentsSeparatedByString:@" ±"][0];
+        NSLog(@"sizeString %@", pbSizeString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [cell.textLabel setText:displayString];
+        [cell.textLabel setText:theString];
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
         return;
     }
