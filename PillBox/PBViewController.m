@@ -25,6 +25,7 @@
     NSString*               pbColorString;
     NSString*               pbShapeString;
     NSString*               pbSizeString;
+    NSString*               pbQueryString;
 }
 - (IBAction)searchWithAction:(id)sender;
 
@@ -263,8 +264,51 @@
     }
     if (pbSwitch.on) {
         [pbTemplate setValue:@1 forKey:@"has_image"];
+    } else {
+        [pbTemplate setValue:@0 forKey:@"has_image"];
     }
     NSLog(@"pbTemplate => %@", pbTemplate);
+    
+    //http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?prodcode=0078-0176&key=12345
+    
+    int i =0;
+    int count = (int)pbTemplate.count;
+    NSMutableString* queryString = [[NSMutableString alloc] initWithString:@"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?"];
+    for (NSString* key in pbTemplate) {
+        if (i>1 && i<count+1) {
+            [queryString appendString:@"&"];
+        }
+        if ([key isEqualToString:@"has_image"]) {
+            if ([[pbTemplate valueForKey:key] intValue] == 1) {
+                [queryString appendString:@"has_image = 1"];
+            }
+        }
+        if ([key isEqualToString:@"author"]) {
+            [queryString appendString:[NSString stringWithFormat:@"author=%@", pbAuthorString]];
+        }
+        if ([key isEqualToString:@"ingredient"]) {
+            [queryString appendString:[NSString stringWithFormat:@"ingredient=%@", pbActiveString]];
+        }
+        if ([key isEqualToString:@"inactive"]) {
+            [queryString appendString:[NSString stringWithFormat:@"inactive=%@", pbOtherString]];
+        }
+        if ([key isEqualToString:@"color"]) {
+            [queryString appendString:[NSString stringWithFormat:@"color=%@", pbColorString]];
+        }
+        if ([key isEqualToString:@"shape"]) {
+            [queryString appendString:[NSString stringWithFormat:@"shape=%@", pbShapeString]];
+        }
+        if ([key isEqualToString:@"size"]) {
+            [queryString appendString:[NSString stringWithFormat:@"size=%@", pbSizeString]];
+        }
+        i++;
+        
+        pbQueryString = queryString;
+        
+        if (i == count) {
+            i = 0;
+        }
+    }
 }
 
 @end
