@@ -132,14 +132,51 @@
 - (IBAction)pbAction:(id)sender
 {
     if ([self.headerLabel.text isEqualToString:@"MANUFACTURER"]) {
+        NSString* input = self.pbTextField.text ;
+        NSString* url = [NSString stringWithFormat:@"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?key=12345&author=%@", input];
+        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
+        
+        NSLog(@"response = %@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+        
+        if ([[[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding] isEqualToString:@"No records found"]) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+        }
+        
         inputFromManufacturer = [NSString stringWithFormat:@"%@ &!MANUFACTURER", self.pbTextField.text];
         [self.popupDelegate sendStringFromModalView:inputFromManufacturer andModalPanel:self];
         [self hide];
     } else if ([self.headerLabel.text isEqualToString:@"ACTIVE INGREDIENT"]) {
+        NSString* input = self.pbTextField.text ;
+        NSString* url = [NSString stringWithFormat:@"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?key=12345&ingredient=%@", input];
+        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
+        
+        NSLog(@"response = %@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+        
+        if ([[[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding] isEqualToString:@"No records found"]) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+        }
         inputFromActive = [NSString stringWithFormat:@"%@ &!ACTIVE", self.pbTextField.text];
         [self.popupDelegate sendStringFromModalView:inputFromActive andModalPanel:self];
         [self hide];
     } else if ([self.headerLabel.text isEqualToString:@"OTHER INGREDIENT"]) {
+        NSString* input = self.pbTextField.text ;
+        NSString* url = [NSString stringWithFormat:@"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?key=12345&inactive=%@", input];
+        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
+        
+        NSLog(@"response = %@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+        
+        if ([[[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding] isEqualToString:@"No records found"]) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+        }
         inputFromInactive = [NSString stringWithFormat:@"%@ &!OTHER", self.pbTextField.text];
         [self.popupDelegate sendStringFromModalView:inputFromInactive andModalPanel:self];
         [self hide];
