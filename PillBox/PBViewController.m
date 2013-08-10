@@ -242,7 +242,6 @@
 
 - (IBAction)searchWithAction:(id)sender
 {
-    NSLog(@"HHEEEYYY");
     NSMutableDictionary* pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
     if (pbSizeString != nil && pbSizeString.length > 0) {
         [pbTemplate setValue:pbSizeString forKey:@"size"];
