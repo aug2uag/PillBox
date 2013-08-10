@@ -264,7 +264,7 @@
     if (pbSwitch.on) {
         [pbTemplate setValue:@1 forKey:@"has_image"];
     }
-    
+    NSLog(@"pbTemplate => %@", pbTemplate);
 }
 
 @end
