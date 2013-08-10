@@ -26,6 +26,7 @@
     NSString*               pbShapeString;
     NSString*               pbSizeString;
     NSString*               pbQueryString;
+    NSString*               pbAddressUrl;
 }
 - (IBAction)searchWithAction:(id)sender;
 
@@ -36,13 +37,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
     pbArray = @[@[@"Manufacturer", @"Name/Active ingredient", @"Inactive ingredient"], @[@"Color", @"Shape", @"Size"]];
     
     pbSwitch = [[UICustomSwitch alloc] initWithFrame:CGRectMake(220.0f, 57.0f, 40.0f, 20.0f)];
     [self.view addSubview:pbSwitch];
     pbSwitch.leftLabel.text = @"ON";
     pbSwitch.rightLabel.text = @"OFF";
+    
+    pbAddressUrl = @"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?";
 }
 
 
@@ -273,7 +276,7 @@
     
     int i =0;
     int count = (int)pbTemplate.count;
-    NSMutableString* queryString = [[NSMutableString alloc] initWithString:@"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?"];
+    NSMutableString* queryString = [[NSMutableString alloc] initWithString:pbAddressUrl];
     for (NSString* key in pbTemplate) {
         if (i>1 && i<count+1) {
             [queryString appendString:@"&"];
@@ -306,9 +309,26 @@
         pbQueryString = queryString;
         
         if (i == count) {
+            [queryString appendString:@"&key=12345"];
+            [self retrieveResults];
             i = 0;
         }
     }
+}
+
+- (void)retrieveResults
+{
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:pbQueryString]];
+    NSLog(@"sending request with %@", pbQueryString);
+    UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator.frame = CGRectMake(self.view.center.x - indicator.bounds.size.width, self.view.center.y - indicator.bounds.size.height, indicator.bounds.size.width, indicator.bounds.size.height);
+    [self.view addSubview:indicator];
+    [indicator startAnimating];
+    NSData* results = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
+    [indicator stopAnimating];
+    NSString* resultString = [[NSString alloc] initWithData:results encoding:NSUTF8StringEncoding];
+    NSLog(@"stringResult => %@", resultString);
+    
 }
 
 @end
