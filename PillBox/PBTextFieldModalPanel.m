@@ -137,8 +137,6 @@
         NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
         NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
         NSString* responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-
-        NSLog(@"response = %@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
         
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -156,8 +154,6 @@
         NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
         NSString* responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         
-        NSLog(@"response = %@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-        
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -174,9 +170,6 @@
         NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
         NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
         NSString* responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-
-        
-        NSLog(@"response = %@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
         
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

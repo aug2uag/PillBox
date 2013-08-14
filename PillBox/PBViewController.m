@@ -9,15 +9,24 @@
 #import "PBViewController.h"
 #import "UICustomSwitch.h"
 #import "NSString+PBExtension.h"
+#import "PBResultsViewController.h"
+#import "XMLReader.h"
 
 @interface PBViewController ()
 {
     NSArray*                pbArray;
+    NSMutableArray*         pbResultsArray;
     PBColorsModalPanel*     pbColorPanel;
     PBSizeModalPanel*       pbSizePanel;
     PBShapeModalPanel*      pbShapePanel;
     PBTextFieldModalPanel*  pbTextPanel;
     UICustomSwitch*         pbSwitch;
+    
+    NSXMLParser*            rssParser;
+    NSMutableDictionary*    item;
+    NSString*               currentElement;
+    NSMutableString*        elementValue;
+    BOOL                    errorParsing;
     
     NSString*               pbAuthorString;
     NSString*               pbActiveString;
@@ -37,7 +46,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    NSLog(@"HELLO HELLO");
+    
+    
     pbArray = @[@[@"Manufacturer", @"Name/Active ingredient", @"Inactive ingredient"], @[@"Color", @"Shape", @"Size"]];
     
     pbSwitch = [[UICustomSwitch alloc] initWithFrame:CGRectMake(220.0f, 57.0f, 40.0f, 20.0f)];
@@ -45,7 +57,7 @@
     pbSwitch.leftLabel.text = @"ON";
     pbSwitch.rightLabel.text = @"OFF";
     
-    pbAddressUrl = @"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?";
+    pbAddressUrl = @"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?key=12345";
 }
 
 
@@ -199,7 +211,6 @@
             pbColorString = nil;
         }
         
-        NSLog(@"sizeString %@", pbColorString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell.textLabel setText:theString];
@@ -213,7 +224,6 @@
             pbShapeString = nil;
         }
         
-        NSLog(@"sizeString %@", pbShapeString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell.textLabel setText:theString];
@@ -229,7 +239,6 @@
             pbSizeString = nil;
         }
         
-        NSLog(@"sizeString %@", pbSizeString);
         UITableViewCell* cell = [self.oTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell.textLabel setText:theString];
@@ -246,6 +255,8 @@
 
 - (IBAction)searchWithAction:(id)sender
 {
+    NSLog(@"button clicked");
+    
     NSMutableDictionary* pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
     if (pbSizeString != nil && pbSizeString.length > 0) {
         [pbTemplate setValue:pbSizeString forKey:@"size"];
@@ -270,7 +281,6 @@
     } else {
         [pbTemplate setValue:@0 forKey:@"has_image"];
     }
-    NSLog(@"pbTemplate => %@", pbTemplate);
     
     //http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?prodcode=0078-0176&key=12345
     
@@ -287,48 +297,84 @@
             }
         }
         if ([key isEqualToString:@"author"]) {
-            [queryString appendString:[NSString stringWithFormat:@"author=%@", pbAuthorString]];
+            [queryString appendString:[NSString stringWithFormat:@"&author=%@", pbAuthorString]];
         }
         if ([key isEqualToString:@"ingredient"]) {
-            [queryString appendString:[NSString stringWithFormat:@"ingredient=%@", pbActiveString]];
+            [queryString appendString:[NSString stringWithFormat:@"&ingredient=%@", pbActiveString]];
         }
         if ([key isEqualToString:@"inactive"]) {
-            [queryString appendString:[NSString stringWithFormat:@"inactive=%@", pbOtherString]];
+            [queryString appendString:[NSString stringWithFormat:@"&inactive=%@", pbOtherString]];
         }
         if ([key isEqualToString:@"color"]) {
-            [queryString appendString:[NSString stringWithFormat:@"color=%@", pbColorString]];
+            [queryString appendString:[NSString stringWithFormat:@"&color=%@", pbColorString]];
         }
         if ([key isEqualToString:@"shape"]) {
-            [queryString appendString:[NSString stringWithFormat:@"shape=%@", pbShapeString]];
+            [queryString appendString:[NSString stringWithFormat:@"&shape=%@", pbShapeString]];
         }
         if ([key isEqualToString:@"size"]) {
-            [queryString appendString:[NSString stringWithFormat:@"size=%@", pbSizeString]];
+            [queryString appendString:[NSString stringWithFormat:@"&size=%@", pbSizeString]];
         }
         i++;
         
         pbQueryString = queryString;
+        NSLog(@"pbQuerytString => %@", pbQueryString);
+        [self parseXMLFileAtURL:pbQueryString];
         
-        if (i == count) {
-            [queryString appendString:@"&key=12345"];
-            [self retrieveResults];
-            i = 0;
-        }
+        return;
+        
     }
 }
 
-- (void)retrieveResults
+
+- (void)parseXMLFileAtURL:(NSString *)URL
 {
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:pbQueryString]];
-    NSLog(@"sending request with %@", pbQueryString);
+    NSLog(@"parse xml");
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL]];
     UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     indicator.frame = CGRectMake(self.view.center.x - indicator.bounds.size.width, self.view.center.y - indicator.bounds.size.height, indicator.bounds.size.width, indicator.bounds.size.height);
     [self.view addSubview:indicator];
     [indicator startAnimating];
     NSData* results = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
     [indicator stopAnimating];
-    NSString* resultString = [[NSString alloc] initWithData:results encoding:NSUTF8StringEncoding];
-    NSLog(@"stringResult => %@", resultString);
     
+//    NSString* resultString = [[NSString alloc] initWithData:results encoding:NSUTF8StringEncoding];
+//    NSLog(@"stringResult => %@", resultString);
+    
+    NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:results];
+    //NSLog(@" %@", xmlDictionary);
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:xmlDictionary
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"jsonString\n\n%@",jsonString);
+    }
+    
+    //[self performSegueWithIdentifier:@"toResults" sender:self];
+    
+}
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+    
+    NSString *errorString = [NSString stringWithFormat:@"Error code %i", [parseError code]];
+    NSLog(@"Error parsing XML: %@", errorString);
+    
+    
+    errorParsing=YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //    if ([segue.identifier isEqualToString:@"toResults"]) {
+    //        PBResultsViewController* resultsVC = [segue destinationViewController];
+    //        resultsVC.pbResultsArray =
+    //    }
 }
 
 @end

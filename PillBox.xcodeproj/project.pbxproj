@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3431930F17B9F48C009A8D98 /* PBResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3431930E17B9F48C009A8D98 /* PBResultsViewController.m */; };
 		3465EEB717AE0CD700985E0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEB617AE0CD700985E0C /* UIKit.framework */; };
 		3465EEB917AE0CD700985E0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEB817AE0CD700985E0C /* Foundation.framework */; };
 		3465EEBB17AE0CD700985E0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEBA17AE0CD700985E0C /* CoreGraphics.framework */; };
@@ -41,9 +42,12 @@
 		3492BB3F17AF5CD900A4A7B6 /* switchBlueBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3C17AF5CD900A4A7B6 /* switchBlueBg.png */; };
 		3492BB4017AF5CD900A4A7B6 /* switchOffPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3D17AF5CD900A4A7B6 /* switchOffPlain.png */; };
 		3492BB4117AF5CD900A4A7B6 /* switchThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 3492BB3E17AF5CD900A4A7B6 /* switchThumb.png */; };
+		34E303DD17BA29BC00EA04B2 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E303DC17BA29BC00EA04B2 /* XMLReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3431930D17B9F48C009A8D98 /* PBResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBResultsViewController.h; sourceTree = "<group>"; };
+		3431930E17B9F48C009A8D98 /* PBResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBResultsViewController.m; sourceTree = "<group>"; };
 		3465EEB317AE0CD700985E0C /* PillBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3465EEB617AE0CD700985E0C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3465EEB817AE0CD700985E0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,6 +99,8 @@
 		3492BB3C17AF5CD900A4A7B6 /* switchBlueBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchBlueBg.png; sourceTree = "<group>"; };
 		3492BB3D17AF5CD900A4A7B6 /* switchOffPlain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchOffPlain.png; sourceTree = "<group>"; };
 		3492BB3E17AF5CD900A4A7B6 /* switchThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchThumb.png; sourceTree = "<group>"; };
+		34E303DB17BA29BC00EA04B2 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		34E303DC17BA29BC00EA04B2 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,8 @@
 				3465EECE17AE0CD800985E0C /* MainStoryboard.storyboard */,
 				3465EED117AE0CD800985E0C /* PBViewController.h */,
 				3465EED217AE0CD800985E0C /* PBViewController.m */,
+				3431930D17B9F48C009A8D98 /* PBResultsViewController.h */,
+				3431930E17B9F48C009A8D98 /* PBResultsViewController.m */,
 				347D2B5D17B1F47900706409 /* NSString+PBExtension.h */,
 				347D2B5E17B1F47A00706409 /* NSString+PBExtension.m */,
 				3492BB2817AF468A00A4A7B6 /* PBModal Panels */,
@@ -195,6 +203,8 @@
 				3465EEF217AE1AC000985E0C /* UANoisyGradientBackground.m */,
 				3465EEF317AE1AC000985E0C /* UARoundedRectView.h */,
 				3465EEF417AE1AC000985E0C /* UARoundedRectView.m */,
+				34E303DB17BA29BC00EA04B2 /* XMLReader.h */,
+				34E303DC17BA29BC00EA04B2 /* XMLReader.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -308,6 +318,8 @@
 				3492BB3B17AF5CC000A4A7B6 /* UICustomSwitch.m in Sources */,
 				347D2B5917B0F04B00706409 /* PBTextFieldModalPanel.m in Sources */,
 				347D2B5F17B1F47A00706409 /* NSString+PBExtension.m in Sources */,
+				3431930F17B9F48C009A8D98 /* PBResultsViewController.m in Sources */,
+				34E303DD17BA29BC00EA04B2 /* XMLReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
