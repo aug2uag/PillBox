@@ -44,7 +44,7 @@ NSString *const kXMLReaderTextNodeKey = @"text";
     
     // Parse the XML
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-    parser.delegate = self;
+    parser.delegate = (id)self;
     BOOL success = [parser parse];
     
     // Return the stack’s root dictionary on success
