@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-884" y="-109"/>
+            <point key="canvasLocation" x="-1069" y="-117"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="CGo-yT-bSU">
@@ -79,16 +79,46 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e5s-FM-2ZL">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="495" id="gJu-Ex-rYy"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cell" id="nQc-we-Ycl">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="m6w-z9-nc2" kind="modal" trigger="accessoryAction" id="Kl1-eU-gaS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="YUq-wn-e5c" id="PDB-wE-6JG"/>
                                     <outlet property="delegate" destination="YUq-wn-e5c" id="rkX-er-LU4"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlS-g3-OaG">
+                                <items>
+                                    <navigationItem title="Results" id="5ty-h7-qrd">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="MQs-nq-eav">
+                                            <connections>
+                                                <action selector="doneWithButton:" destination="YUq-wn-e5c" id="wnJ-mL-Yy3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e5s-FM-2ZL" firstAttribute="top" secondItem="erF-Yq-Tpp" secondAttribute="top" type="default" id="J4G-dd-Du0"/>
+                            <constraint firstItem="wlS-g3-OaG" firstAttribute="top" secondItem="erF-Yq-Tpp" secondAttribute="top" type="default" id="7Dy-91-gfw"/>
+                            <constraint firstItem="wlS-g3-OaG" firstAttribute="trailing" secondItem="erF-Yq-Tpp" secondAttribute="trailing" type="default" id="T3t-Q4-qyO"/>
                             <constraint firstItem="e5s-FM-2ZL" firstAttribute="trailing" secondItem="erF-Yq-Tpp" secondAttribute="trailing" type="default" id="cSO-AJ-ATY"/>
+                            <constraint firstItem="wlS-g3-OaG" firstAttribute="leading" secondItem="erF-Yq-Tpp" secondAttribute="leading" type="default" id="epL-c0-CA2"/>
                             <constraint firstItem="e5s-FM-2ZL" firstAttribute="leading" secondItem="erF-Yq-Tpp" secondAttribute="leading" type="default" id="eyK-yz-9R7"/>
                             <constraint firstItem="e5s-FM-2ZL" firstAttribute="bottom" secondItem="erF-Yq-Tpp" secondAttribute="bottom" type="default" id="gyA-46-W2h"/>
                         </constraints>
@@ -99,7 +129,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Bq-Rv-akv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522" y="-109"/>
+            <point key="canvasLocation" x="-707" y="-117"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BPh-eE-dxe">
+            <objects>
+                <viewController id="m6w-z9-nc2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AOl-Zx-CdF">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kS-HT-7TU">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkH-cH-UHc">
+                                <items>
+                                    <navigationItem title="Detail" id="Ui5-LV-5on">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hJl-aS-j8v"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mkH-cH-UHc" firstAttribute="top" secondItem="AOl-Zx-CdF" secondAttribute="top" type="default" id="37f-yc-aEO"/>
+                            <constraint firstItem="mkH-cH-UHc" firstAttribute="trailing" secondItem="AOl-Zx-CdF" secondAttribute="trailing" type="default" id="4yo-IP-8iG"/>
+                            <constraint firstItem="mkH-cH-UHc" firstAttribute="leading" secondItem="AOl-Zx-CdF" secondAttribute="leading" type="default" id="AYG-5C-PHt"/>
+                            <constraint firstItem="mkH-cH-UHc" firstAttribute="centerX" secondItem="1kS-HT-7TU" secondAttribute="centerX" type="default" id="dqw-Hf-sVB"/>
+                            <constraint firstItem="1kS-HT-7TU" firstAttribute="top" secondItem="AOl-Zx-CdF" secondAttribute="top" constant="214" id="qNN-T2-EWL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IoU-cX-25d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-334" y="-117"/>
         </scene>
     </scenes>
     <classes>
@@ -109,6 +174,7 @@
         <class className="PBResultsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PBResultsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="doneWithButton:"/>
                 <relationship kind="outlet" name="oTableView" candidateClass="UITableView"/>
             </relationships>
         </class>

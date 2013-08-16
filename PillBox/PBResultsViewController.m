@@ -12,6 +12,7 @@
 {
     __weak IBOutlet UITableView *oTableView;
 }
+- (IBAction)doneWithButton:(id)sender;
 
 @end
 
@@ -68,10 +69,15 @@
                                                  range:foundRange];
     
     //set string to textLabel of cell
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell.textLabel setText:pbRxName];
     [cell.detailTextLabel setText:pbIngredient];
     
     return cell;
 }
 
+- (IBAction)doneWithButton:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
