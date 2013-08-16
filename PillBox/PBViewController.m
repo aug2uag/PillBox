@@ -16,6 +16,8 @@
 @interface PBViewController ()
 {
     NSArray*                pbArray;
+    NSDictionary*           pbJSONresponseDictionary;
+    NSMutableArray*         pbJSONResponseArray;
     NSMutableArray*         trackArrayForReset;
     NSMutableArray*         pbResultsArray;
     PBColorsModalPanel*     pbColorPanel;
@@ -383,14 +385,16 @@
     if (! jsonData) {
         NSLog(@"Got an error: %@", error);
     } else {
-        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         
-        NSLog(@"jsonString\n\n%@",jsonString);
+        pbJSONresponseDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+        
+        //NSLog(@"jsonArray\n\n%@",pbJSONresponseDictionary);
     }
     [hud hide:YES];
     
-    //[self performSegueWithIdentifier:@"toResults" sender:self];
+    pbJSONResponseArray = [NSMutableArray array];
     
+    [self performSegueWithIdentifier:@"toResults" sender:self];
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
@@ -404,11 +408,13 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    //    if ([segue.identifier isEqualToString:@"toResults"]) {
-    //        PBResultsViewController* resultsVC = [segue destinationViewController];
-    //        resultsVC.pbResultsArray =
-    //    }
+{    
+    for (NSDictionary* object in [[pbJSONresponseDictionary valueForKey:@"Pills"] valueForKey:@"pill"]) {
+        [pbJSONResponseArray addObject:object];
+    }
+    
+    PBResultsViewController* pbr = [segue destinationViewController];
+    pbr.pbResultsArray = pbJSONResponseArray;
 }
 
 @end

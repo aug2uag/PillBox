@@ -20,6 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"results array is %@", self.pbResultsArray);
 	// Do any additional setup after loading the view.
 }
 
