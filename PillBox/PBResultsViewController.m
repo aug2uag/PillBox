@@ -17,6 +17,8 @@
 
 @implementation PBResultsViewController
 
+@synthesize pbResultsArray;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,7 +37,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _pbResultsArray.count;
+    return pbResultsArray.count;
 }
 
 
@@ -44,17 +46,30 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
     }
-    
     
     //declare string, assign to value at indexPath from array
     //array may be made from [dictionary allKeys];
-    NSString* string = [_pbResultsArray objectAtIndex:indexPath.row];
+    NSString* pbRxName = [(NSString *)[[pbResultsArray objectAtIndex:indexPath.row] objectForKey:@"RXSTRING"] valueForKey:@"text"];
+    NSRange foundRange = [pbRxName rangeOfString:@"\n\t"];
+    if (foundRange.location != NSNotFound)
+        [pbRxName stringByReplacingOccurrencesOfString:@"\n\t"
+                                            withString:@""
+                                               options:0
+                                                 range:foundRange];
     
+    NSString* pbIngredient = [(NSString *)[[pbResultsArray objectAtIndex:indexPath.row] objectForKey:@"INGREDIENTS"] valueForKey:@"text"];
+    foundRange = [pbIngredient rangeOfString:@"\n\t"];
+    if (foundRange.location != NSNotFound)
+        [pbIngredient stringByReplacingOccurrencesOfString:@"\n\t"
+                                            withString:@""
+                                               options:0
+                                                 range:foundRange];
     
     //set string to textLabel of cell
-    [cell.textLabel setText:string];
+    [cell.textLabel setText:pbRxName];
+    [cell.detailTextLabel setText:pbIngredient];
     
     return cell;
 }
