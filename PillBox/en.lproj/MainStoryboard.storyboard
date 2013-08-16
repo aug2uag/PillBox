@@ -150,7 +150,11 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkH-cH-UHc">
                                 <items>
                                     <navigationItem title="Detail" id="Ui5-LV-5on">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hJl-aS-j8v"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hJl-aS-j8v">
+                                            <connections>
+                                                <action selector="doneWithAction:" destination="m6w-z9-nc2" id="8oa-Xq-dse"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -238,6 +242,7 @@
         <class className="PBDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PBDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="doneWithAction:"/>
                 <relationship kind="outlet" name="inactiveIngredientsTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="manufacturerTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="prescriptionNameTextView" candidateClass="UITextView"/>

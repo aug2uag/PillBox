@@ -13,8 +13,8 @@
     __weak IBOutlet UITextView *manufacturerTextView;
     __weak IBOutlet UITextView *prescriptionNameTextView;
     __weak IBOutlet UITextView *inactiveIngredientsTextView;
-
 }
+- (IBAction)doneWithAction:(id)sender;
 
 @end
 
@@ -45,4 +45,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)doneWithAction:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
