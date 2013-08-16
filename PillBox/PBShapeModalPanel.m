@@ -157,7 +157,6 @@
     }
     
     
-    NSString* selectionString = pbSelections[row];
     [self.popupDelegate sendStringFromModalView:[NSString stringWithFormat:@"Shape is: %@", pbSelections[row]] andModalPanel:self];
 }
 

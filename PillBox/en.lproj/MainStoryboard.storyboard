@@ -25,7 +25,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yW9-iJ-Bok">
                                 <items>
                                     <navigationItem title="PillBox" id="N7j-Fk-Lff">
-                                        <barButtonItem key="leftBarButtonItem" title="Reset" style="plain" id="WZs-iP-nIA">
+                                        <barButtonItem key="leftBarButtonItem" title="Reset" id="WZs-iP-nIA">
                                             <connections>
                                                 <action selector="resetWithAction:" destination="2" id="eG2-ba-zNa"/>
                                             </connections>
@@ -98,6 +98,25 @@
             <point key="canvasLocation" x="-522" y="-109"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PBResultsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBResultsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="oTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PBViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="resetWithAction:"/>
+                <relationship kind="action" name="searchWithAction:"/>
+                <relationship kind="outlet" name="oTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

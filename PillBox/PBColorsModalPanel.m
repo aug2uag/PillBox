@@ -158,7 +158,6 @@
         return;
     }
     
-    NSString* selectionString = pbSelections[row];
     [self.popupDelegate sendStringFromModalView:[NSString stringWithFormat:@"Color is: %@", pbSelections[row]] andModalPanel:self];
 }
 
