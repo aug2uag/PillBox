@@ -166,10 +166,10 @@
 				3431930E17B9F48C009A8D98 /* PBResultsViewController.m */,
 				3468592617BE12EB000110FE /* PBDetailViewController.h */,
 				3468592717BE12EB000110FE /* PBDetailViewController.m */,
-				347D2B5D17B1F47900706409 /* NSString+PBExtension.h */,
-				347D2B5E17B1F47A00706409 /* NSString+PBExtension.m */,
 				3468592317BE118E000110FE /* PBObject.h */,
 				3468592417BE118E000110FE /* PBObject.m */,
+				347D2B5D17B1F47900706409 /* NSString+PBExtension.h */,
+				347D2B5E17B1F47A00706409 /* NSString+PBExtension.m */,
 				3492BB2817AF468A00A4A7B6 /* PBModal Panels */,
 				3465EEBD17AE0CD700985E0C /* Supporting Files */,
 			);

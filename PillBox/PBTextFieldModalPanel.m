@@ -17,7 +17,6 @@
 #import "PBTextFieldModalPanel.h"
 #import "PBViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "MBProgressHUD.h"
 
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
@@ -26,7 +25,7 @@
     NSString* inputFromManufacturer;
     NSString* inputFromActive;
     NSString* inputFromInactive;
-    MBProgressHUD *hud;
+    __weak IBOutlet UIActivityIndicatorView *pbActivityIndicator;
 }
 
 - (IBAction)pbAction:(id)sender;
@@ -78,9 +77,9 @@
 #pragma mark -textField delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    hud = [MBProgressHUD showHUDAddedTo:self.viewLoadedFromXib animated:NO];
-    hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.labelText = @"Loading";
+    pbActivityIndicator.hidden = NO;
+    [self addSubview:pbActivityIndicator];
+    [pbActivityIndicator startAnimating];
     
     [textField resignFirstResponder];
     [self pbAction:self];
@@ -99,6 +98,7 @@
     [super layoutSubviews];
     
     self.pbTextField.delegate = (id)self;
+    pbActivityIndicator.hidden = YES;
     
     self.titleBar.frame = [self titleBarFrame];
 	self.headerLabel.frame = self.titleBar.bounds;
@@ -152,6 +152,12 @@
 
 - (IBAction)pbAction:(id)sender
 {
+    if (![pbActivityIndicator isAnimating]) {
+        pbActivityIndicator.hidden = NO;
+        [self addSubview:pbActivityIndicator];
+        [pbActivityIndicator startAnimating];
+    }
+    
     if ([self.headerLabel.text isEqualToString:@"MANUFACTURER"]) {
         NSString* input = self.pbTextField.text ;
         NSString* url = [NSString stringWithFormat:@"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?key=12345&author=%@", input];
@@ -161,8 +167,9 @@
         
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [pbActivityIndicator stopAnimating];
             [alert show];
-            [hud hide:YES];
+            self.pbTextField.text = nil;
             return;
         }
         
@@ -178,8 +185,9 @@
         
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [pbActivityIndicator stopAnimating];
             [alert show];
-            [hud hide:YES];
+            self.pbTextField.text = nil;
             return;
         }
         
@@ -196,8 +204,9 @@
         
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [pbActivityIndicator stopAnimating];
+            self.pbTextField.text = nil;
             [alert show];
-            [hud hide:YES];
             return;
         }
         
@@ -209,7 +218,8 @@
         [self hide];
         NSLog(@"error, invalid header label");
     }
-    [hud hide:YES];
+    self.pbTextField.text = nil;
+    [pbActivityIndicator stopAnimating];
 }
 
 
