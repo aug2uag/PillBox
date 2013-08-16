@@ -1,4 +1,4 @@
-The Pillbox API identifies unknown pills based on how they look, their ingredients, and a few other criteria. It also answers questions like “What pills contain acetaminophen?” .
+The Pillbox API identifies unknown pills based on how they look, their ingredients, and a few other criteria. It also answers questions like “What pills contain acetominophen?” .
 
 PillBox is an iOS application with the Pillbox API implementation in CocoaTouch. Version 1.0 features will include:
 - User search for pill manufacturer
