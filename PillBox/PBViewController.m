@@ -11,6 +11,7 @@
 #import "NSString+PBExtension.h"
 #import "PBResultsViewController.h"
 #import "XMLReader.h"
+#import "MBProgressHUD.h"
 
 @interface PBViewController ()
 {
@@ -23,6 +24,7 @@
     PBTextFieldModalPanel*  pbTextPanel;
     UICustomSwitch*         pbSwitch;
     NSMutableDictionary*    pbTemplate;
+    MBProgressHUD *         hud;
     
     NSXMLParser*            rssParser;
     NSMutableDictionary*    item;
@@ -50,17 +52,13 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"HELLO HELLO");
-    
     trackArrayForReset = [[NSMutableArray alloc] init];
-    
     pbArray = @[@[@"Manufacturer", @"Name/Active ingredient", @"Inactive ingredient"], @[@"Color", @"Shape", @"Size"]];
     
     pbSwitch = [[UICustomSwitch alloc] initWithFrame:CGRectMake(220.0f, 57.0f, 40.0f, 20.0f)];
     [self.view addSubview:pbSwitch];
     pbSwitch.leftLabel.text = @"ON";
     pbSwitch.rightLabel.text = @"OFF";
-    
     pbAddressUrl = @"http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php?key=12345";
 }
 
@@ -269,7 +267,9 @@
 
 - (IBAction)searchWithAction:(id)sender
 {
-    NSLog(@"button clicked");
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = @"Loading";
     
     pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
     if (pbSizeString != nil && pbSizeString.length > 0) {
@@ -387,6 +387,7 @@
         
         NSLog(@"jsonString\n\n%@",jsonString);
     }
+    [hud hide:YES];
     
     //[self performSegueWithIdentifier:@"toResults" sender:self];
     
@@ -396,6 +397,7 @@
     
     NSString *errorString = [NSString stringWithFormat:@"Error code %i", [parseError code]];
     NSLog(@"Error parsing XML: %@", errorString);
+    [hud hide:YES];
     
     
     errorParsing=YES;
