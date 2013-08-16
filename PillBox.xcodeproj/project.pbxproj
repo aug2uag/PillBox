@@ -32,6 +32,7 @@
 		3465EEFA17AE1AC000985E0C /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EEF417AE1AC000985E0C /* UARoundedRectView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3465EEFF17AE1D3300985E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3465EEFE17AE1D3300985E0C /* QuartzCore.framework */; };
 		3465EF0217AE202E00985E0C /* PBColorsModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */; };
+		3468592217BDDECE000110FE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468592117BDDECE000110FE /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		347D2B5917B0F04B00706409 /* PBTextFieldModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */; };
 		347D2B5B17B0F09500706409 /* PBTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 347D2B5A17B0F09500706409 /* PBTextFieldView.xib */; };
 		347D2B5F17B1F47A00706409 /* NSString+PBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 347D2B5E17B1F47A00706409 /* NSString+PBExtension.m */; };
@@ -83,6 +84,8 @@
 		3465EEFE17AE1D3300985E0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3465EF0017AE202E00985E0C /* PBColorsModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBColorsModalPanel.h; sourceTree = "<group>"; };
 		3465EF0117AE202E00985E0C /* PBColorsModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBColorsModalPanel.m; sourceTree = "<group>"; };
+		3468592017BDDECE000110FE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		3468592117BDDECE000110FE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		347D2B5717B0F04B00706409 /* PBTextFieldModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTextFieldModalPanel.h; sourceTree = "<group>"; };
 		347D2B5817B0F04B00706409 /* PBTextFieldModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTextFieldModalPanel.m; sourceTree = "<group>"; };
 		347D2B5A17B0F09500706409 /* PBTextFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBTextFieldView.xib; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				3465EEF417AE1AC000985E0C /* UARoundedRectView.m */,
 				34E303DB17BA29BC00EA04B2 /* XMLReader.h */,
 				34E303DC17BA29BC00EA04B2 /* XMLReader.m */,
+				3468592017BDDECE000110FE /* MBProgressHUD.h */,
+				3468592117BDDECE000110FE /* MBProgressHUD.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				347D2B5F17B1F47A00706409 /* NSString+PBExtension.m in Sources */,
 				3431930F17B9F48C009A8D98 /* PBResultsViewController.m in Sources */,
 				34E303DD17BA29BC00EA04B2 /* XMLReader.m in Sources */,
+				3468592217BDDECE000110FE /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

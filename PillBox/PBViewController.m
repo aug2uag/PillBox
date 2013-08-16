@@ -15,12 +15,14 @@
 @interface PBViewController ()
 {
     NSArray*                pbArray;
+    NSMutableArray*         trackArrayForReset;
     NSMutableArray*         pbResultsArray;
     PBColorsModalPanel*     pbColorPanel;
     PBSizeModalPanel*       pbSizePanel;
     PBShapeModalPanel*      pbShapePanel;
     PBTextFieldModalPanel*  pbTextPanel;
     UICustomSwitch*         pbSwitch;
+    NSMutableDictionary*    pbTemplate;
     
     NSXMLParser*            rssParser;
     NSMutableDictionary*    item;
@@ -38,6 +40,7 @@
     NSString*               pbAddressUrl;
 }
 - (IBAction)searchWithAction:(id)sender;
+- (IBAction)resetWithAction:(id)sender;
 
 @end
 
@@ -49,6 +52,7 @@
     
     NSLog(@"HELLO HELLO");
     
+    trackArrayForReset = [[NSMutableArray alloc] init];
     
     pbArray = @[@[@"Manufacturer", @"Name/Active ingredient", @"Inactive ingredient"], @[@"Color", @"Shape", @"Size"]];
     
@@ -150,6 +154,8 @@
     
 }
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 54.0f;
@@ -167,6 +173,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 27.0f;
+}
+
+#pragma mark -delegate method
+- (void)sendStringToAddToArray:(NSString *)theString
+{
+    
 }
 
 - (void)sendStringFromModalView:(NSString *)theString andModalPanel:(UAModalPanel *)theModalPanel
@@ -246,6 +258,8 @@
         return;
     }
     
+    
+    
 }
 
 - (void)willShowModalPanel:(UAModalPanel *)modalPanel
@@ -257,7 +271,7 @@
 {
     NSLog(@"button clicked");
     
-    NSMutableDictionary* pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
+    pbTemplate = [[NSMutableDictionary alloc] initWithCapacity:6];
     if (pbSizeString != nil && pbSizeString.length > 0) {
         [pbTemplate setValue:pbSizeString forKey:@"size"];
     }
@@ -325,6 +339,24 @@
     }
 }
 
+- (IBAction)resetWithAction:(id)sender
+{
+    pbAuthorString = nil;
+    pbActiveString = nil;
+    pbOtherString = nil;
+    pbColorString = nil;
+    pbShapeString = nil;
+    pbSizeString = nil;
+    pbQueryString = nil;
+    pbAddressUrl = nil;
+    pbTemplate = nil;
+    
+    [self.oTableView reloadData];
+    
+    [self viewDidLoad];
+    
+}
+
 
 - (void)parseXMLFileAtURL:(NSString *)URL
 {
@@ -337,8 +369,8 @@
     NSData* results = [NSURLConnection sendSynchronousRequest:request returningResponse:0 error:nil];
     [indicator stopAnimating];
     
-//    NSString* resultString = [[NSString alloc] initWithData:results encoding:NSUTF8StringEncoding];
-//    NSLog(@"stringResult => %@", resultString);
+    //    NSString* resultString = [[NSString alloc] initWithData:results encoding:NSUTF8StringEncoding];
+    //    NSLog(@"stringResult => %@", resultString);
     
     NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:results];
     //NSLog(@" %@", xmlDictionary);

@@ -17,6 +17,7 @@
 #import "PBTextFieldModalPanel.h"
 #import "PBViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MBProgressHUD.h"
 
 #define DEFAULT_TITLE_BAR_HEIGHT	40.0f
 
@@ -25,6 +26,7 @@
     NSString* inputFromManufacturer;
     NSString* inputFromActive;
     NSString* inputFromInactive;
+    MBProgressHUD *hud;
 }
 
 - (IBAction)pbAction:(id)sender;
@@ -73,9 +75,30 @@
     return self;
 }
 
+#pragma mark -textField delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    hud = [MBProgressHUD showHUDAddedTo:self.viewLoadedFromXib animated:NO];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = @"Loading";
+    
+    [textField resignFirstResponder];
+    [self pbAction:self];
+    double delayInSeconds = 0.2;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        textField.text = nil;
+    });
+    
+    
+    return YES;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    self.pbTextField.delegate = (id)self;
     
     self.titleBar.frame = [self titleBarFrame];
 	self.headerLabel.frame = self.titleBar.bounds;
@@ -115,8 +138,6 @@
 }
 
 - (void)showAnimationFinished {
-    
-    
 	UADebugLog(@"Fading in content for modalPanel: %@", self);
 	[UIView animateWithDuration:0.2
 						  delay:0.0
@@ -141,6 +162,7 @@
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            [hud hide:YES];
             return;
         }
         
@@ -157,6 +179,7 @@
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            [hud hide:YES];
             return;
         }
         
@@ -174,6 +197,7 @@
         if ([responseString isEqualToString:@"No records found"] || responseString.length < 1) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Invalid selection" message:@"please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            [hud hide:YES];
             return;
         }
         
@@ -185,6 +209,7 @@
         [self hide];
         NSLog(@"error, invalid header label");
     }
+    [hud hide:YES];
 }
 
 
