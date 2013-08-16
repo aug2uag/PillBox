@@ -7,10 +7,13 @@
 //
 
 #import "PBResultsViewController.h"
+#import "PBDetailViewController.h"
+#import "PBObject.h"
 
 @interface PBResultsViewController ()
 {
     __weak IBOutlet UITableView *oTableView;
+    NSInteger pbIndex;
 }
 - (IBAction)doneWithButton:(id)sender;
 
@@ -74,6 +77,26 @@
     [cell.detailTextLabel setText:pbIngredient];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    pbIndex = indexPath.row;
+    [self performSegueWithIdentifier:@"toDetail" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PBDetailViewController* pbd = [segue destinationViewController];
+    
+    NSString* author, *inactives, *name;
+    
+    author = [[pbResultsArray[pbIndex] valueForKey:@"AUTHOR"] valueForKey:@"text"];
+    inactives = [[pbResultsArray[pbIndex] valueForKey:@"SPL_INACTIVE_ING"] valueForKey:@"text"];
+    name = [[pbResultsArray[pbIndex] valueForKey:@"RXSTRING"] valueForKey:@"text"];
+    
+    PBObject* object = [[PBObject alloc] initWithAuthor:author theInactives:inactives theName:name];
+    pbd.currentObject = object;
 }
 
 - (IBAction)doneWithButton:(id)sender
